@@ -1,5 +1,5 @@
-export type TaskStatus = 'todo' | 'in-progress' | 'done'
-export type TaskPriority = 'low' | 'medium' | 'high'
+import type { TaskStatus } from '@/shared/constants/task'
+import type { TaskPriority } from '@/shared/constants/task'
 
 export interface Task {
 	id: string
