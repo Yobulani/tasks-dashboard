@@ -1,5 +1,6 @@
-import { TaskCard, useGetTasksQuery } from '@/entities/task'
+import { useGetTasksQuery } from '@/entities/task'
 import { TaskFormDialog } from '@/features/task-form'
+import { TaskList } from '@/widgets/TaskList/ui/TaskList'
 
 const TasksPage = () => {
 	const { isLoading, isError, data: tasks } = useGetTasksQuery()
@@ -17,12 +18,7 @@ const TasksPage = () => {
 			<h1 className='text-2xl font-bold text-gray-600 mb-6'>Задачи</h1>
 			<TaskFormDialog></TaskFormDialog>
 			<div className='space-y-3'>
-				{tasks?.map(task => (
-					<TaskCard
-						key={task.id}
-						task={task}
-					></TaskCard>
-				))}
+				<TaskList tasks={tasks}></TaskList>
 			</div>
 		</div>
 	)

@@ -7,12 +7,12 @@ import {
 	DialogTrigger
 } from '@/components/ui/dialog'
 import type { Task } from '@/entities/task'
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 import { TaskForm } from './TaskForm'
 
 interface TaskFormDialogProps {
 	initialValue?: Task
-	trigger?: React.ReactElement
+	trigger?: ReactElement
 }
 
 export const TaskFormDialog = ({

@@ -13,3 +13,5 @@ export interface Task {
 }
 
 export type CreateTaskDto = Omit<Task, 'id' | 'createdAt'>
+
+export type UpdateTaskDto = Omit<Task, 'createdAt'>

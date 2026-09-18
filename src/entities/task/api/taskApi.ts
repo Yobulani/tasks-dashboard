@@ -1,5 +1,5 @@
 import { baseApi } from '@/shared/api/baseApi'
-import type { CreateTaskDto, Task } from '../model/types'
+import type { CreateTaskDto, Task, UpdateTaskDto } from '../model/types'
 
 export const taskApi = baseApi.injectEndpoints({
 	endpoints: build => ({
@@ -14,8 +14,28 @@ export const taskApi = baseApi.injectEndpoints({
 				body
 			}),
 			invalidatesTags: ['Task']
+		}),
+		updateTask: build.mutation<Task, UpdateTaskDto>({
+			query: ({ id, ...body }) => ({
+				url: `/tasks/${id}`,
+				method: 'PUT',
+				body
+			}),
+			invalidatesTags: ['Task']
+		}),
+		removeTask: build.mutation<Task, string>({
+			query: id => ({
+				url: `/tasks/${id}`,
+				method: 'DELETE'
+			}),
+			invalidatesTags: ['Task']
 		})
 	})
 })
 
-export const { useGetTasksQuery, useCreateTaskMutation } = taskApi
+export const {
+	useGetTasksQuery,
+	useCreateTaskMutation,
+	useUpdateTaskMutation,
+	useRemoveTaskMutation
+} = taskApi

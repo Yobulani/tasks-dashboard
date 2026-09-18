@@ -1,4 +1,4 @@
-import Header from '@/widgets/header'
+import Header from '@/widgets/Header'
 import Sidebar from '@/widgets/Sidebar'
 import { Outlet } from 'react-router-dom'
 

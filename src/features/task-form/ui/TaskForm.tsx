@@ -1,4 +1,8 @@
-import { useCreateTaskMutation, type Task } from '@/entities/task'
+import {
+	useCreateTaskMutation,
+	useUpdateTaskMutation,
+	type Task
+} from '@/entities/task'
 import { useForm } from 'react-hook-form'
 import { taskFormSchema, type TaskFormValues } from '../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -14,9 +18,10 @@ interface TaskFormProps {
 
 export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 	const [createTask, { isLoading: isCreating }] = useCreateTaskMutation()
+	const [updateTask, { isLoading: isEditing }] = useUpdateTaskMutation()
 
 	const isEditMode = Boolean(initialValue)
-	const isLoading = isCreating
+	const isLoading = isCreating || isEditing
 
 	const {
 		register,
@@ -46,10 +51,14 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 
 	const onSubmit = async (taskData: TaskFormValues) => {
 		try {
-			if (isEditMode) {
+			if (initialValue) {
+				await updateTask({
+					id: initialValue.id,
+					...taskData
+				}).unwrap()
+			} else {
+				await createTask(taskData).unwrap()
 			}
-
-			await createTask(taskData).unwrap()
 
 			reset()
 			onSuccess?.()
