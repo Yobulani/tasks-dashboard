@@ -3,13 +3,15 @@ import {
 	useUpdateTaskMutation,
 	type Task
 } from '@/entities/task'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { taskFormSchema, type TaskFormValues } from '../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	TASK_PRIORITY_OPTIONS,
 	TASK_STATUS_OPTIONS
 } from '@/shared/constants/task'
+import { UserSelect } from './UserSelect'
+import { ProjectSelect } from './ProjectSelect'
 
 interface TaskFormProps {
 	initialValue?: Task
@@ -27,6 +29,7 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 		register,
 		handleSubmit,
 		reset,
+		control,
 		formState: { errors }
 	} = useForm<TaskFormValues>({
 		resolver: zodResolver(taskFormSchema),
@@ -141,14 +144,33 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 			</div>
 
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					ID проекта
-				</label>
-				<input
-					{...register('projectId')}
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
-					placeholder='1'
-				></input>
+				<Controller
+					name='assigneeId'
+					control={control}
+					render={({ field }) => (
+						<UserSelect
+							value={field.value}
+							onChange={value => field.onChange(value)}
+						></UserSelect>
+					)}
+				></Controller>
+				{errors.assigneeId && (
+					<p className='text-sm text-red-500 mt-1'>
+						{errors.assigneeId.message}
+					</p>
+				)}
+			</div>
+			<div>
+				<Controller
+					name='projectId'
+					control={control}
+					render={({ field }) => (
+						<ProjectSelect
+							value={field.value}
+							onChange={value => field.onChange(value)}
+						></ProjectSelect>
+					)}
+				></Controller>
 				{errors.projectId && (
 					<p className='text-sm text-red-500 mt-1'>
 						{errors.projectId.message}
@@ -157,6 +179,7 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 			</div>
 
 			<button
+				type='submit'
 				disabled={isLoading}
 				className='w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white py-2 rounded-md font-medium transition-colors'
 			>

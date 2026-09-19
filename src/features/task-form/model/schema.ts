@@ -9,7 +9,7 @@ export const taskFormSchema = z.object({
 	description: z.string().max(500).or(z.literal('')),
 	status: z.enum(TASK_STATUSES),
 	priority: z.enum(TASK_PRIORITIES),
-	projectId: z.string().min(1, 'Укажите id проекта'),
+	projectId: z.string().min(1, 'Укажите проект'),
 	assigneeId: z.string().nullable()
 })
 
