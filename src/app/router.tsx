@@ -6,6 +6,11 @@ import TasksPage from '@/pages/TasksPage'
 import ProfilePage from '@/pages/ProfilePage'
 import { ProtectedRoute } from '@/features/auth'
 import { LoginPage } from '@/pages/LoginPage'
+import AdminLayout from './layouts/AdminLayout'
+import { AdminDashboardPage } from '@/pages/AdminDashboardPage'
+import { AdminProjectsPage } from '@/pages/AdminProjectsPage'
+import { AdminUsersPage } from '@/pages/AdminUsersPage'
+import { ForbiddenPage } from '@/pages/ForbiddenPage'
 
 const router = createBrowserRouter([
 	{
@@ -13,8 +18,32 @@ const router = createBrowserRouter([
 		element: <LoginPage></LoginPage>
 	},
 	{
+		element: <ProtectedRoute requiredRole='admin'></ProtectedRoute>,
+		children: [
+			{
+				path: '/admin',
+				element: <AdminLayout></AdminLayout>,
+				children: [
+					{
+						index: true,
+						element: <AdminDashboardPage></AdminDashboardPage>
+					},
+					{
+						path: 'projects',
+						element: <AdminProjectsPage></AdminProjectsPage>
+					},
+					{
+						path: 'users',
+						element: <AdminUsersPage></AdminUsersPage>
+					}
+				]
+			}
+		]
+	},
+	{
 		element: <ProtectedRoute></ProtectedRoute>,
 		children: [
+			{ path: '/403', element: <ForbiddenPage></ForbiddenPage> },
 			{
 				path: '/',
 				element: <MainLayout></MainLayout>,

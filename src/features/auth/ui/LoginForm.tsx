@@ -19,7 +19,14 @@ export const LoginForm = () => {
 
 		if (user) {
 			dispatch(login(user))
-			navigate('/', { replace: true })
+
+			switch (user.role) {
+				case 'admin':
+					navigate('/admin', { replace: true })
+					break
+				default:
+					navigate('/', { replace: true })
+			}
 		}
 	}
 
