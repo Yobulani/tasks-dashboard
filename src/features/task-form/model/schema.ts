@@ -4,12 +4,12 @@ import { z } from 'zod'
 export const taskFormSchema = z.object({
 	title: z
 		.string()
-		.min(3, 'Минимум 3 символа')
-		.max(100, 'Максимум 100 символов'),
+		.min(3, { error: 'Минимум 3 символа' })
+		.max(100, { error: 'Максимум 100 символов' }),
 	description: z.string().max(500).or(z.literal('')),
 	status: z.enum(TASK_STATUSES),
 	priority: z.enum(TASK_PRIORITIES),
-	projectId: z.string().min(1, 'Укажите проект'),
+	projectId: z.string().min(1, { error: 'Укажите проект' }),
 	assigneeId: z.string().nullable()
 })
 

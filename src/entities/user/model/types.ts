@@ -1,4 +1,4 @@
-export type UserRole = 'admin' | 'user'
+import type { UserRole } from '@/shared/constants/user'
 
 export interface User {
 	id: string
@@ -7,3 +7,7 @@ export interface User {
 	role: UserRole
 	avatarUrl?: string
 }
+
+export type CreateUserDto = Omit<User, 'id'>
+
+export type UpdateUserDto = { id: string } & Partial<User>

@@ -1,3 +1,8 @@
-export type { User, UserRole } from './model/types'
+export type { User } from './model/types'
 
-export { useGetUsersQuery } from './api/userApi'
+export {
+	useGetUsersQuery,
+	useCreateUserMutation,
+	useRemoveUserMutation,
+	useUpdateUserMutation
+} from './api/userApi'
