@@ -1,25 +1,28 @@
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow
-} from '@/components/ui/table'
 import { useGetUsersQuery } from '@/entities/user'
-import { DeleteUserButton } from '@/features/delete-user'
+import { useFilteredUsers, UserFilters } from '@/features/user-filters'
 import { UserFormDialog } from '@/features/user-form'
-import { LucideSquarePen, LucideTrash } from 'lucide-react'
+import type { UserRole } from '@/shared/constants/user'
+import { UserTable } from '@/widgets/UserTable'
+import { useDeferredValue, useState } from 'react'
 
 export const AdminUsersPage = () => {
-	const { isLoading, data: users } = useGetUsersQuery()
+	const { isLoading, isError, data: users } = useGetUsersQuery()
+	const [search, setSearch] = useState('')
+	const [role, setRole] = useState<UserRole | null>(null)
+
+	const deferredSearch = useDeferredValue(search)
+
+	const filteredUsers = useFilteredUsers(users, {
+		search: deferredSearch,
+		role
+	})
 
 	if (isLoading) {
-		return <p>Загрузка...</p>
+		return <div className='p-8'>Loading...</div>
 	}
 
-	if (!users?.length) {
-		return <p>Пользователей нет</p>
+	if (isError) {
+		return <div className='p-8 text-red-500'>Oops...</div>
 	}
 
 	return (
@@ -27,42 +30,21 @@ export const AdminUsersPage = () => {
 			<h1 className='text-2xl font-bold mb-6'>Пользователи</h1>
 
 			<div className='mb-3'>
+				<UserFilters
+					search={search}
+					role={role}
+					onRoleChange={role => setRole(role)}
+					onSearchChange={search => setSearch(search)}
+				></UserFilters>
+			</div>
+
+			<div className='mb-2'>
 				<UserFormDialog></UserFormDialog>
 			</div>
 
-			<Table>
-				<TableHeader>
-					<TableRow>
-						<TableHead>Имя</TableHead>
-						<TableHead>E-mail</TableHead>
-						<TableHead>Роль</TableHead>
-						<TableHead>Действия</TableHead>
-					</TableRow>
-				</TableHeader>
-				<TableBody>
-					{users.map(user => (
-						<TableRow key={user.id}>
-							<TableCell>{user.name}</TableCell>
-							<TableCell>{user.email}</TableCell>
-							<TableCell>{user.role}</TableCell>
-							<TableCell>
-								<UserFormDialog
-									initialValue={user}
-									trigger={
-										<LucideSquarePen className='w-5 h-5 text-purple-500 hover:text-purple-700'></LucideSquarePen>
-									}
-								></UserFormDialog>
-								<DeleteUserButton
-									user={user}
-									trigger={
-										<LucideTrash className='w-5 h-5 text-purple-500 hover:text-purple-700'></LucideTrash>
-									}
-								></DeleteUserButton>
-							</TableCell>
-						</TableRow>
-					))}
-				</TableBody>
-			</Table>
+			<div className='space-y-3'>
+				<UserTable users={filteredUsers}></UserTable>
+			</div>
 		</div>
 	)
 }

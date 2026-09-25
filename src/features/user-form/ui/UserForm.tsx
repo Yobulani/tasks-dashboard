@@ -1,12 +1,12 @@
 import {
 	useCreateUserMutation,
+	UserRoleSelect,
 	useUpdateUserMutation,
 	type User
 } from '@/entities/user'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import { UserFormSchema, type UserFormValues } from '../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { USER_ROLE_OPTIONS } from '@/shared/constants/user'
 
 interface UserFormProps {
 	initialValue?: User
@@ -25,6 +25,7 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 		register,
 		handleSubmit,
 		reset,
+		control,
 		formState: { errors }
 	} = useForm<UserFormValues>({
 		resolver: zodResolver(UserFormSchema),
@@ -94,19 +95,16 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 				<label className='mb-1 block font-medium text-sm text-gray-700'>
 					Роль
 				</label>
-				<select
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500'
-					{...register('role')}
-				>
-					{USER_ROLE_OPTIONS.map(role => (
-						<option
-							key={role.value}
-							value={role.value}
-						>
-							{role.label}
-						</option>
-					))}
-				</select>
+				<Controller
+					name='role'
+					control={control}
+					render={({ field }) => (
+						<UserRoleSelect
+							value={field.value}
+							onChange={field.onChange}
+						></UserRoleSelect>
+					)}
+				></Controller>
 				{errors.role && (
 					<p className='mt-1 text-sm text-red-500'>{errors.role.message}</p>
 				)}

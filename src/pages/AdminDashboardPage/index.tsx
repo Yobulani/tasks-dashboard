@@ -1,4 +1,4 @@
-import { AdminStats } from '@/widgets/AdminStats/ui/AdminStats'
+import { AdminStats } from '@/widgets/AdminStats'
 
 export const AdminDashboardPage = () => {
 	return (
