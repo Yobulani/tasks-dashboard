@@ -29,7 +29,7 @@ export const UserTable = ({ users }: UserTableProps) => {
 	)
 
 	if (!users || users.length === 0) {
-		return <p className='text-gray-500'>Пользователей нет</p>
+		return <p className='text-foreground-muted'>Пользователей нет</p>
 	}
 
 	return (

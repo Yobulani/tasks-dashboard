@@ -12,6 +12,7 @@ import {
 } from '@/shared/constants/task'
 import { UserSelect } from './UserSelect'
 import { ProjectSelect } from './ProjectSelect'
+import { FormField } from '@/shared/ui/FormField'
 
 interface TaskFormProps {
 	initialValue?: Task
@@ -76,70 +77,70 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 			className='space-y-4'
 		>
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					Название
-				</label>
-				<input
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
-					{...register('title')}
-					placeholder='Например: написать тесты'
-				></input>
-				{errors.title && (
-					<p className='text-sm text-red-500 mt-1'>{errors.title.message}</p>
-				)}
+				<FormField
+					label='Название'
+					error={errors.title?.message}
+				>
+					<input
+						className='form-control'
+						{...register('title')}
+						placeholder='Например: написать тесты'
+					></input>
+				</FormField>
 			</div>
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					Описание
-				</label>
-				<textarea
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
-					{...register('description')}
-					rows={3}
-				></textarea>
-				{errors.description && (
-					<p className='text-sm text-red-500 mt-1'>
-						{errors.description.message}
-					</p>
-				)}
+				<FormField
+					label='Описание'
+					error={errors.description?.message}
+				>
+					<textarea
+						className='form-control'
+						{...register('description')}
+						rows={3}
+					></textarea>
+				</FormField>
 			</div>
 
 			<div className='grid grid-cols-2 gap-4'>
 				<div>
-					<label className='mb-1 block font-medium text-sm text-gray-700'>
-						Статус
-					</label>
-					<select
-						className='w-full px-3 py-2 border border-gray-300 rounded-md'
-						{...register('status')}
+					<FormField
+						label='Статус'
+						error={errors.status?.message}
 					>
-						{TASK_STATUS_OPTIONS.map(status => (
-							<option
-								value={status.value}
-								key={status.value}
-							>
-								{status.label}
-							</option>
-						))}
-					</select>
+						<select
+							className='form-control'
+							{...register('status')}
+						>
+							{TASK_STATUS_OPTIONS.map(status => (
+								<option
+									value={status.value}
+									key={status.value}
+								>
+									{status.label}
+								</option>
+							))}
+						</select>
+					</FormField>
 				</div>
 				<div>
-					<label className='mb-1 block font-medium text-sm text-gray-700'>
-						Приоритет
-					</label>
-					<select
-						{...register('priority')}
-						className='w-full px-3 py-2 border border-gray-300 rounded-md'
+					<FormField
+						label='Приоритет'
+						error={errors.priority?.message}
 					>
-						{TASK_PRIORITY_OPTIONS.map(priority => (
-							<option
-								value={priority.value}
-								key={priority.value}
-							>
-								{priority.label}
-							</option>
-						))}
-					</select>
+						<select
+							{...register('priority')}
+							className='form-control'
+						>
+							{TASK_PRIORITY_OPTIONS.map(priority => (
+								<option
+									value={priority.value}
+									key={priority.value}
+								>
+									{priority.label}
+								</option>
+							))}
+						</select>
+					</FormField>
 				</div>
 			</div>
 

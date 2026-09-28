@@ -14,7 +14,7 @@ export const TaskList = ({ tasks }: TaskListProps) => {
 	const { data: projects } = useGetProjectsQuery()
 
 	if (!tasks || tasks.length === 0) {
-		return <p className='text-gray-500'>Задач пока нет</p>
+		return <p className='text-foreground-muted'>Задач пока нет</p>
 	}
 
 	return (

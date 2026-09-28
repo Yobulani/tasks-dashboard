@@ -7,6 +7,7 @@ import {
 import { Controller, useForm } from 'react-hook-form'
 import { UserFormSchema, type UserFormValues } from '../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { FormField } from '@/shared/ui/FormField'
 
 interface UserFormProps {
 	initialValue?: User
@@ -66,48 +67,45 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					Имя
-				</label>
-				<input
-					{...register('name')}
-					placeholder='Иван Иванов'
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500'
-				></input>
-				{errors.name && (
-					<p className='mt-1 text-sm text-red-500'>{errors.name.message}</p>
-				)}
+				<FormField
+					label='Имя'
+					error={errors.name?.message}
+				>
+					<input
+						{...register('name')}
+						placeholder='Иван Иванов'
+						className='form-control form-admin-control'
+					></input>
+				</FormField>
 			</div>
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					E-mail
-				</label>
-				<input
-					{...register('email')}
-					placeholder='ivan@ivan.com'
-					className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500'
-				></input>
-				{errors.email && (
-					<p className='mt-1 text-sm text-red-500'>{errors.email.message}</p>
-				)}
+				<FormField
+					label='E-mail'
+					error={errors.email?.message}
+				>
+					<input
+						{...register('email')}
+						placeholder='ivan@ivan.com'
+						className='form-control form-admin-control'
+					></input>
+				</FormField>
 			</div>
 			<div>
-				<label className='mb-1 block font-medium text-sm text-gray-700'>
-					Роль
-				</label>
-				<Controller
-					name='role'
-					control={control}
-					render={({ field }) => (
-						<UserRoleSelect
-							value={field.value}
-							onChange={field.onChange}
-						></UserRoleSelect>
-					)}
-				></Controller>
-				{errors.role && (
-					<p className='mt-1 text-sm text-red-500'>{errors.role.message}</p>
-				)}
+				<FormField
+					label='Роль'
+					error={errors.role?.message}
+				>
+					<Controller
+						name='role'
+						control={control}
+						render={({ field }) => (
+							<UserRoleSelect
+								value={field.value}
+								onChange={field.onChange}
+							></UserRoleSelect>
+						)}
+					></Controller>
+				</FormField>
 			</div>
 
 			<button

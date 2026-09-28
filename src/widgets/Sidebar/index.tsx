@@ -26,7 +26,7 @@ const Sidebar = () => {
 	)
 
 	return (
-		<aside className='w-64 flex flex-col h-screen bg-white border-r border-gray-200'>
+		<aside className='w-64 flex flex-col h-screen bg-card border-r '>
 			<nav className='flex-1 p-6 flex-col space-y-1'>
 				{Links.map(({ path, label, icon: Icon }) => (
 					<NavLink

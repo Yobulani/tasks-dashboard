@@ -3,6 +3,7 @@ import { useAppDispatch } from '@/shared/lib/hooks'
 import { useState } from 'react'
 import { login } from '../model/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { FormField } from '@/shared/ui/FormField'
 
 export const LoginForm = () => {
 	const [selectedId, setSelectedId] = useState('')
@@ -33,28 +34,23 @@ export const LoginForm = () => {
 	return (
 		<div className='space-y-4'>
 			<div>
-				<label
-					className='block text-sm text-gray-700 mb-1 font-medium'
-					htmlFor='user-select'
-				>
-					Выберите пользователя
-				</label>
-				<select
-					className='w-full px-3 py-2 border border-gray-300 rounded-md'
-					id='user-select'
-					value={selectedId}
-					onChange={e => setSelectedId(e.target.value)}
-				>
-					<option value=''>Выберите пользователя</option>
-					{users?.map(user => (
-						<option
-							key={user.id}
-							value={user.id}
-						>
-							{`${user.name} | ${user.email}`}
-						</option>
-					))}
-				</select>
+				<FormField label='Выберите пользователя'>
+					<select
+						className='form-control'
+						value={selectedId}
+						onChange={e => setSelectedId(e.target.value)}
+					>
+						<option value=''>Выберите пользователя</option>
+						{users?.map(user => (
+							<option
+								key={user.id}
+								value={user.id}
+							>
+								{`${user.name} | ${user.email}`}
+							</option>
+						))}
+					</select>
+				</FormField>
 			</div>
 
 			<button

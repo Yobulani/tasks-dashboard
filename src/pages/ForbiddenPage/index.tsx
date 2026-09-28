@@ -4,9 +4,9 @@ export const ForbiddenPage = () => {
 	return (
 		<div className='min-h-screen flex items-center justify-center'>
 			<div className='text-center'>
-				<h1 className='text-6xl font-bold text-gray-800'>403</h1>
-				<p className='text-xl mt-4 text-gray-600'>Доступ запрещён</p>
-				<p className='mt-2 text-gray-500'>
+				<h1 className='text-6xl font-bold text-foreground'>403</h1>
+				<p className='text-xl mt-4 text-foreground-muted'>Доступ запрещён</p>
+				<p className='mt-2 text-foreground-muted'>
 					У вас нет прав для просмотра этой страницы
 				</p>
 				<Link

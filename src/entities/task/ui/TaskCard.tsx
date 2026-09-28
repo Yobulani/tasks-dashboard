@@ -15,13 +15,13 @@ export const TaskCard = ({
 	projectName
 }: TaskCardProps) => {
 	return (
-		<div className='bg-white p-4 rounded-lg border border-gray-200 shadow-sm'>
+		<div className='bg-card text-card-foreground p-4 rounded-lg border border-border shadow-sm'>
 			<div>
-				<h3 className='font-semibold text-gray-800'>{task.title}</h3>
-				<p className='text-sm text-gray-500'>{task.description}</p>
+				<h3 className='font-semibold text-foreground'>{task.title}</h3>
+				<p className='text-sm text-muted-foreground'>{task.description}</p>
 				<p>Исполнитель: {assigneeName ?? 'Исполнитель не назначен'}</p>
 				<p>Проект: {projectName ?? 'Проект не назначен'}</p>
-				<span className='inline-block mt-2 text-xs px-2 py-1 rounded bg-blue-100 text-blue-700'>
+				<span className='inline-block mt-2 text-xs px-2 py-1 rounded bg-card text-primary'>
 					{task.status}
 				</span>
 			</div>
