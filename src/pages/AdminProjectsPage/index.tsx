@@ -9,7 +9,7 @@ import {
 import { useGetProjectsQuery } from '@/entities/project'
 import { useGetUsersQuery } from '@/entities/user'
 
-export const AdminProjectsPage = () => {
+const AdminProjectsPage = () => {
 	const { isLoading, data: projects } = useGetProjectsQuery()
 	const { data: users } = useGetUsersQuery()
 
@@ -50,3 +50,5 @@ export const AdminProjectsPage = () => {
 		</div>
 	)
 }
+
+export default AdminProjectsPage

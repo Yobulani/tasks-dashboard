@@ -1,6 +1,9 @@
 import { LoginForm } from '@/features/auth'
+import { useDocumentTitle } from '@/shared/lib/useDocumentTitle'
 
-export const LoginPage = () => {
+const LoginPage = () => {
+	useDocumentTitle('Авторизация')
+
 	return (
 		<div className='min-h-screen flex justify-center items-center bg-background-secondary'>
 			<div className='bg-card p-8 rounded-lg shadow-md w-full max-w-md'>
@@ -10,3 +13,5 @@ export const LoginPage = () => {
 		</div>
 	)
 }
+
+export default LoginPage

@@ -1,16 +1,18 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayouts'
-import DashboardPage from '@/pages/DashboardPage'
-import ProjectsPage from '@/pages/ProjectsPage'
-import TasksPage from '@/pages/TasksPage'
-import ProfilePage from '@/pages/ProfilePage'
 import { ProtectedRoute } from '@/features/auth'
-import { LoginPage } from '@/pages/LoginPage'
 import AdminLayout from './layouts/AdminLayout'
-import { AdminDashboardPage } from '@/pages/AdminDashboardPage'
-import { AdminProjectsPage } from '@/pages/AdminProjectsPage'
-import { AdminUsersPage } from '@/pages/AdminUsersPage'
-import { ForbiddenPage } from '@/pages/ForbiddenPage'
+import { lazy } from 'react'
+
+const DashboardPage = lazy(() => import('@/pages/DashboardPage'))
+const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'))
+const TasksPage = lazy(() => import('@/pages/TasksPage'))
+const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
+const AdminDashboardPage = lazy(() => import('@/pages/AdminDashboardPage'))
+const AdminProjectsPage = lazy(() => import('@/pages/AdminProjectsPage'))
+const AdminUsersPage = lazy(() => import('@/pages/AdminUsersPage'))
+const ForbiddenPage = lazy(() => import('@/pages/ForbiddenPage'))
+const LoginPage = lazy(() => import('@/pages/LoginPage'))
 
 const router = createBrowserRouter([
 	{
@@ -26,15 +28,18 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <AdminDashboardPage></AdminDashboardPage>
+						element: <AdminDashboardPage></AdminDashboardPage>,
+						handle: { title: 'Статистика' }
 					},
 					{
 						path: 'projects',
-						element: <AdminProjectsPage></AdminProjectsPage>
+						element: <AdminProjectsPage></AdminProjectsPage>,
+						handle: { title: 'Проекты' }
 					},
 					{
 						path: 'users',
-						element: <AdminUsersPage></AdminUsersPage>
+						element: <AdminUsersPage></AdminUsersPage>,
+						handle: { title: 'Пользователи' }
 					}
 				]
 			}
@@ -50,19 +55,23 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <DashboardPage></DashboardPage>
+						element: <DashboardPage></DashboardPage>,
+						handle: { title: 'Дашборд' }
 					},
 					{
 						path: 'projects',
-						element: <ProjectsPage></ProjectsPage>
+						element: <ProjectsPage></ProjectsPage>,
+						handle: { title: 'Проекты' }
 					},
 					{
 						path: 'tasks',
-						element: <TasksPage></TasksPage>
+						element: <TasksPage></TasksPage>,
+						handle: { title: 'Задачи' }
 					},
 					{
 						path: 'profile',
-						element: <ProfilePage></ProfilePage>
+						element: <ProfilePage></ProfilePage>,
+						handle: { title: 'Профиль' }
 					}
 				]
 			}

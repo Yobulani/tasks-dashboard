@@ -5,7 +5,7 @@ import type { UserRole } from '@/shared/constants/user'
 import { UserTable } from '@/widgets/UserTable'
 import { useDeferredValue, useState } from 'react'
 
-export const AdminUsersPage = () => {
+const AdminUsersPage = () => {
 	const { isLoading, isError, data: users } = useGetUsersQuery()
 	const [search, setSearch] = useState('')
 	const [role, setRole] = useState<UserRole | null>(null)
@@ -48,3 +48,5 @@ export const AdminUsersPage = () => {
 		</div>
 	)
 }
+
+export default AdminUsersPage

@@ -9,7 +9,7 @@ import {
 import { type User } from '@/entities/user'
 import { DeleteUserButton } from '@/features/delete-user'
 import { UserFormDialog } from '@/features/user-form'
-import { useSortableData } from '@/shared/lib/hooks'
+import { useSortableData } from '@/shared/lib/useSortableData'
 import { ArrowDown, ArrowUp, LucideSquarePen, LucideTrash } from 'lucide-react'
 
 interface UserTableProps {

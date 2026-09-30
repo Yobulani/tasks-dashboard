@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export const ForbiddenPage = () => {
+const ForbiddenPage = () => {
 	return (
 		<div className='min-h-screen flex items-center justify-center'>
 			<div className='text-center'>
@@ -19,3 +19,5 @@ export const ForbiddenPage = () => {
 		</div>
 	)
 }
+
+export default ForbiddenPage

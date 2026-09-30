@@ -1,6 +1,8 @@
 import Header from '@/widgets/Header'
 import AdminSidebar from '@/widgets/AdminSidebar'
 import { Outlet } from 'react-router-dom'
+import { Suspense } from 'react'
+import { PageLoader } from '@/shared/ui/PageLoader'
 
 const AdminLayout = () => {
 	return (
@@ -9,7 +11,9 @@ const AdminLayout = () => {
 			<div className='flex flex-col flex-1'>
 				<Header></Header>
 				<main className='flex-1 overflow-auto'>
-					<Outlet></Outlet>
+					<Suspense fallback={<PageLoader></PageLoader>}>
+						<Outlet></Outlet>
+					</Suspense>
 				</main>
 			</div>
 		</div>

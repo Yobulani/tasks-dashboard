@@ -4,6 +4,8 @@ import { TaskCard, type Task } from '@/entities/task'
 import { useGetUsersQuery } from '@/entities/user'
 import { DeleteTaskButton } from '@/features/delete-task'
 import { TaskFormDialog } from '@/features/task-form'
+import { useMap } from '@/shared/lib/useMap'
+import { TaskActions } from './TaskActions'
 
 interface TaskListProps {
 	tasks?: Task[]
@@ -12,6 +14,8 @@ interface TaskListProps {
 export const TaskList = ({ tasks }: TaskListProps) => {
 	const { data: users } = useGetUsersQuery()
 	const { data: projects } = useGetProjectsQuery()
+	const usersMap = useMap(users, 'id')
+	const projectsMap = useMap(projects, 'id')
 
 	if (!tasks || tasks.length === 0) {
 		return <p className='text-foreground-muted'>Задач пока нет</p>
@@ -23,19 +27,11 @@ export const TaskList = ({ tasks }: TaskListProps) => {
 				<TaskCard
 					key={task.id}
 					task={task}
-					assigneeName={users?.find(user => user.id === task.assigneeId)?.name}
-					projectName={
-						projects?.find(project => project.id === task.projectId)?.name
+					assigneeName={
+						task.assigneeId ? usersMap.get(task.assigneeId)?.name : ''
 					}
-					actions={
-						<>
-							<TaskFormDialog
-								trigger={<Button variant='ghost'>Редактировать</Button>}
-								initialValue={task}
-							></TaskFormDialog>
-							<DeleteTaskButton task={task}></DeleteTaskButton>
-						</>
-					}
+					projectName={projectsMap.get(task.projectId)?.name}
+					actions={<TaskActions task={task}></TaskActions>}
 				></TaskCard>
 			))}
 		</div>
