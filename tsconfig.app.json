@@ -29,8 +29,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"paths": {
 			"@/*": ["./src/*"]
-		},
-		"baseUrl": "."
+		}
 	},
 	"include": ["src", "components/ui"]
 }
