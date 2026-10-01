@@ -1,9 +1,6 @@
-import { Button } from '@/components/ui/button'
 import { useGetProjectsQuery } from '@/entities/project'
 import { TaskCard, type Task } from '@/entities/task'
 import { useGetUsersQuery } from '@/entities/user'
-import { DeleteTaskButton } from '@/features/delete-task'
-import { TaskFormDialog } from '@/features/task-form'
 import { useMap } from '@/shared/lib/useMap'
 import { TaskActions } from './TaskActions'
 

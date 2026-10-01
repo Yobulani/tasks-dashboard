@@ -1,0 +1,797 @@
+{
+	"users": [
+		{
+			"id": "1",
+			"name": "Иван Петров",
+			"email": "i.petrov@company.ru",
+			"role": "admin",
+			"avatarUrl": "https://i.pravatar.cc/150?u=1"
+		},
+		{
+			"id": "2",
+			"name": "Мария Сидорова",
+			"email": "m.sidorova@company.ru",
+			"role": "admin",
+			"avatarUrl": "https://i.pravatar.cc/150?u=2"
+		},
+		{
+			"id": "3",
+			"name": "Алексей Кузнецов",
+			"email": "a.kuznetsov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=3"
+		},
+		{
+			"id": "4",
+			"name": "Елена Смирнова",
+			"email": "e.smirnova@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=4"
+		},
+		{
+			"id": "5",
+			"name": "Дмитрий Попов",
+			"email": "d.popov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=5"
+		},
+		{
+			"id": "6",
+			"name": "Ольга Васильева",
+			"email": "o.vasilyeva@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=6"
+		},
+		{
+			"id": "7",
+			"name": "Сергей Новиков",
+			"email": "s.novikov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=7"
+		},
+		{
+			"id": "8",
+			"name": "Анна Морозова",
+			"email": "a.morozova@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=8"
+		},
+		{
+			"id": "9",
+			"name": "Павел Волков",
+			"email": "p.volkov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=9"
+		},
+		{
+			"id": "10",
+			"name": "Татьяна Соколова",
+			"email": "t.sokolova@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=10"
+		},
+		{
+			"id": "11",
+			"name": "Николай Лебедев",
+			"email": "n.lebedev@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=11"
+		},
+		{
+			"id": "12",
+			"name": "Екатерина Козлова",
+			"email": "e.kozlova@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=12"
+		},
+		{
+			"id": "13",
+			"name": "Андрей Степанов",
+			"email": "a.stepanov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=13"
+		},
+		{
+			"id": "14",
+			"name": "Юлия Николаева",
+			"email": "y.nikolaeva@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=14"
+		},
+		{
+			"id": "15",
+			"name": "Максим Орлов",
+			"email": "m.orlov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=15"
+		},
+		{
+			"id": "16",
+			"name": "Светлана Андреева",
+			"email": "s.andreeva@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=16"
+		},
+		{
+			"id": "17",
+			"name": "Роман Макаров",
+			"email": "r.makarov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=17"
+		},
+		{
+			"id": "18",
+			"name": "Ксения Никитина",
+			"email": "k.nikitina@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=18"
+		},
+		{
+			"id": "19",
+			"name": "Владимир Захаров",
+			"email": "v.zakharov@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=19"
+		},
+		{
+			"id": "20",
+			"name": "Дарья Белова",
+			"email": "d.belova@company.ru",
+			"role": "user",
+			"avatarUrl": "https://i.pravatar.cc/150?u=20"
+		}
+	],
+	"projects": [
+		{
+			"id": "1",
+			"name": "Корпоративный дашборд",
+			"description": "Внутренний дашборд для управления задачами и проектами",
+			"ownerId": "1",
+			"taskCount": 18
+		},
+		{
+			"id": "2",
+			"name": "Мобильное приложение",
+			"description": "iOS и Android приложение для клиентов",
+			"ownerId": "2",
+			"taskCount": 15
+		},
+		{
+			"id": "3",
+			"name": "API Gateway",
+			"description": "Единая точка входа для микросервисов",
+			"ownerId": "1",
+			"taskCount": 12
+		},
+		{
+			"id": "4",
+			"name": "Система аналитики",
+			"description": "Сбор и визуализация бизнес-метрик",
+			"ownerId": "3",
+			"taskCount": 10
+		},
+		{
+			"id": "5",
+			"name": "Рефакторинг легаси",
+			"description": "Миграция старого монолита на микросервисы",
+			"ownerId": "2",
+			"taskCount": 14
+		},
+		{
+			"id": "6",
+			"name": "Дизайн-система",
+			"description": "Единая библиотека UI-компонентов",
+			"ownerId": "4",
+			"taskCount": 8
+		},
+		{
+			"id": "7",
+			"name": "DevOps инфраструктура",
+			"description": "CI/CD, мониторинг, логирование",
+			"ownerId": "1",
+			"taskCount": 11
+		}
+	],
+	"tasks": [
+		{
+			"id": "1",
+			"title": "Настроить роутинг",
+			"description": "React Router v7, lazy loading страниц",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "1",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "2",
+			"title": "Написать Layout",
+			"description": "Сайдбар, хедер, адаптив",
+			"status": "done",
+			"priority": "medium",
+			"assigneeId": "3",
+			"projectId": "1",
+			"createdAt": "2026-09-02"
+		},
+		{
+			"id": "3",
+			"title": "Интегрировать RTK Query",
+			"description": "baseApi, taskApi, userApi, projectApi",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "1",
+			"createdAt": "2026-09-03"
+		},
+		{
+			"id": "4",
+			"title": "Форма создания задачи",
+			"description": "React Hook Form + Zod",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "4",
+			"projectId": "1",
+			"createdAt": "2026-09-05"
+		},
+		{
+			"id": "5",
+			"title": "Модалка редактирования",
+			"description": "TaskFormDialog с initialValues",
+			"status": "done",
+			"priority": "medium",
+			"assigneeId": "5",
+			"projectId": "1",
+			"createdAt": "2026-09-06"
+		},
+		{
+			"id": "6",
+			"title": "CRUD пользователей",
+			"description": "Админка: создание, редактирование, удаление",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "2",
+			"projectId": "1",
+			"createdAt": "2026-09-08"
+		},
+		{
+			"id": "7",
+			"title": "Тёмная тема",
+			"description": "themeSlice, ThemeProvider, localStorage",
+			"status": "done",
+			"priority": "medium",
+			"assigneeId": "6",
+			"projectId": "1",
+			"createdAt": "2026-09-10"
+		},
+		{
+			"id": "8",
+			"title": "Lazy loading",
+			"description": "Suspense внутри Layout",
+			"status": "done",
+			"priority": "low",
+			"assigneeId": "7",
+			"projectId": "1",
+			"createdAt": "2026-09-12"
+		},
+		{
+			"id": "9",
+			"title": "Оптимизация TaskList",
+			"description": "useMap, React.memo, O(n) вместо O(n²)",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "8",
+			"projectId": "1",
+			"createdAt": "2026-09-13"
+		},
+		{
+			"id": "10",
+			"title": "Деплой на Vercel",
+			"description": "json-server на Render, фронт на Vercel",
+			"status": "todo",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "1",
+			"createdAt": "2026-09-14"
+		},
+		{
+			"id": "11",
+			"title": "Drag-and-Drop",
+			"description": "Kanban-доска с @dnd-kit",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "9",
+			"projectId": "1",
+			"createdAt": "2026-09-15"
+		},
+		{
+			"id": "12",
+			"title": "Тесты",
+			"description": "Vitest + React Testing Library",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "10",
+			"projectId": "1",
+			"createdAt": "2026-09-16"
+		},
+		{
+			"id": "13",
+			"title": "Авторизация через OAuth",
+			"description": "Google, GitHub",
+			"status": "todo",
+			"priority": "high",
+			"assigneeId": "2",
+			"projectId": "2",
+			"createdAt": "2026-09-17"
+		},
+		{
+			"id": "14",
+			"title": "Push-уведомления",
+			"description": "Firebase Cloud Messaging",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "11",
+			"projectId": "2",
+			"createdAt": "2026-09-18"
+		},
+		{
+			"id": "15",
+			"title": "Офлайн-режим",
+			"description": "Service Worker, IndexedDB",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "12",
+			"projectId": "2",
+			"createdAt": "2026-09-19"
+		},
+		{
+			"id": "16",
+			"title": "Интеграция с картами",
+			"description": "Mapbox SDK",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "13",
+			"projectId": "2",
+			"createdAt": "2026-09-20"
+		},
+		{
+			"id": "17",
+			"title": "Настройка навигации",
+			"description": "React Navigation v7",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "3",
+			"projectId": "2",
+			"createdAt": "2026-09-21"
+		},
+		{
+			"id": "18",
+			"title": "Дизайн главного экрана",
+			"description": "Figma → React Native",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "4",
+			"projectId": "2",
+			"createdAt": "2026-09-22"
+		},
+		{
+			"id": "19",
+			"title": "Rate limiting",
+			"description": "Redis + middleware",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "3",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "20",
+			"title": "Аутентификация сервисов",
+			"description": "JWT между микросервисами",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "5",
+			"projectId": "3",
+			"createdAt": "2026-09-02"
+		},
+		{
+			"id": "21",
+			"title": "Логирование запросов",
+			"description": "ELK stack",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "6",
+			"projectId": "3",
+			"createdAt": "2026-09-04"
+		},
+		{
+			"id": "22",
+			"title": "Мониторинг",
+			"description": "Prometheus + Grafana",
+			"status": "todo",
+			"priority": "high",
+			"assigneeId": "7",
+			"projectId": "3",
+			"createdAt": "2026-09-06"
+		},
+		{
+			"id": "23",
+			"title": "Кэширование",
+			"description": "Redis для частых запросов",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "8",
+			"projectId": "3",
+			"createdAt": "2026-09-08"
+		},
+		{
+			"id": "24",
+			"title": "Документация API",
+			"description": "Swagger / OpenAPI",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "9",
+			"projectId": "3",
+			"createdAt": "2026-09-10"
+		},
+		{
+			"id": "25",
+			"title": "Сбор метрик",
+			"description": "События из фронтенда и бэкенда",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "2",
+			"projectId": "4",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "26",
+			"title": "Дашборды",
+			"description": "Grafana-панели для бизнеса",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "10",
+			"projectId": "4",
+			"createdAt": "2026-09-03"
+		},
+		{
+			"id": "27",
+			"title": "Экспорт отчётов",
+			"description": "PDF и Excel",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "11",
+			"projectId": "4",
+			"createdAt": "2026-09-05"
+		},
+		{
+			"id": "28",
+			"title": "Прогнозирование",
+			"description": "ML-модель для прогнозов",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "12",
+			"projectId": "4",
+			"createdAt": "2026-09-07"
+		},
+		{
+			"id": "29",
+			"title": "Анализ воронки",
+			"description": "Конверсия по этапам",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "13",
+			"projectId": "4",
+			"createdAt": "2026-09-09"
+		},
+		{
+			"id": "30",
+			"title": "Миграция БД",
+			"description": "PostgreSQL → PostgreSQL 16",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "5",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "31",
+			"title": "Рефакторинг контроллеров",
+			"description": "Выделение сервисного слоя",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "3",
+			"projectId": "5",
+			"createdAt": "2026-09-02"
+		},
+		{
+			"id": "32",
+			"title": "Покрытие тестами",
+			"description": "Юнит-тесты для сервисов",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "4",
+			"projectId": "5",
+			"createdAt": "2026-09-04"
+		},
+		{
+			"id": "33",
+			"title": "Удаление дублей",
+			"description": "Поиск и удаление дублирующегося кода",
+			"status": "in-progress",
+			"priority": "low",
+			"assigneeId": "5",
+			"projectId": "5",
+			"createdAt": "2026-09-06"
+		},
+		{
+			"id": "34",
+			"title": "Обновление зависимостей",
+			"description": "Аудит уязвимостей",
+			"status": "done",
+			"priority": "medium",
+			"assigneeId": "6",
+			"projectId": "5",
+			"createdAt": "2026-09-08"
+		},
+		{
+			"id": "35",
+			"title": "Документация",
+			"description": "README для новых разработчиков",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "7",
+			"projectId": "5",
+			"createdAt": "2026-09-10"
+		},
+		{
+			"id": "36",
+			"title": "Дизайн-токены",
+			"description": "Цвета, отступы, типографика",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "2",
+			"projectId": "6",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "37",
+			"title": "Button компонент",
+			"description": "Все варианты и размеры",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "8",
+			"projectId": "6",
+			"createdAt": "2026-09-03"
+		},
+		{
+			"id": "38",
+			"title": "Input компонент",
+			"description": "С валидацией и ошибками",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "9",
+			"projectId": "6",
+			"createdAt": "2026-09-05"
+		},
+		{
+			"id": "39",
+			"title": "Modal компонент",
+			"description": "Доступность, фокус-трап",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "10",
+			"projectId": "6",
+			"createdAt": "2026-09-07"
+		},
+		{
+			"id": "40",
+			"title": "Storybook",
+			"description": "Документация компонентов",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "11",
+			"projectId": "6",
+			"createdAt": "2026-09-09"
+		},
+		{
+			"id": "41",
+			"title": "CI/CD пайплайн",
+			"description": "GitHub Actions",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "1",
+			"projectId": "7",
+			"createdAt": "2026-09-01"
+		},
+		{
+			"id": "42",
+			"title": "Docker-образы",
+			"description": "Multi-stage сборка",
+			"status": "done",
+			"priority": "high",
+			"assigneeId": "12",
+			"projectId": "7",
+			"createdAt": "2026-09-02"
+		},
+		{
+			"id": "43",
+			"title": "Kubernetes",
+			"description": "Манифесты для деплоя",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "13",
+			"projectId": "7",
+			"createdAt": "2026-09-04"
+		},
+		{
+			"id": "44",
+			"title": "Мониторинг",
+			"description": "Prometheus + Alertmanager",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "14",
+			"projectId": "7",
+			"createdAt": "2026-09-06"
+		},
+		{
+			"id": "45",
+			"title": "Логирование",
+			"description": "Fluent Bit → Elasticsearch",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "15",
+			"projectId": "7",
+			"createdAt": "2026-09-08"
+		},
+		{
+			"id": "46",
+			"title": "Бэкапы",
+			"description": "Автоматические бэкапы БД",
+			"status": "todo",
+			"priority": "high",
+			"assigneeId": "16",
+			"projectId": "7",
+			"createdAt": "2026-09-10"
+		},
+		{
+			"id": "47",
+			"title": "SSL-сертификаты",
+			"description": "Let's Encrypt + автообновление",
+			"status": "done",
+			"priority": "medium",
+			"assigneeId": "17",
+			"projectId": "7",
+			"createdAt": "2026-09-12"
+		},
+		{
+			"id": "48",
+			"title": "Нагрузочное тестирование",
+			"description": "k6, 10k RPS",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "18",
+			"projectId": "7",
+			"createdAt": "2026-09-14"
+		},
+		{
+			"id": "49",
+			"title": "Оптимизация запросов",
+			"description": "Индексы, EXPLAIN ANALYZE",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "19",
+			"projectId": "3",
+			"createdAt": "2026-09-15"
+		},
+		{
+			"id": "50",
+			"title": "WebSocket",
+			"description": "Real-time обновления",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "20",
+			"projectId": "1",
+			"createdAt": "2026-09-16"
+		},
+		{
+			"id": "51",
+			"title": "Интеграция с Slack",
+			"description": "Уведомления о задачах",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "14",
+			"projectId": "1",
+			"createdAt": "2026-09-17"
+		},
+		{
+			"id": "52",
+			"title": "Экспорт в CSV",
+			"description": "Выгрузка задач и проектов",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "15",
+			"projectId": "1",
+			"createdAt": "2026-09-18"
+		},
+		{
+			"id": "53",
+			"title": "Календарь задач",
+			"description": "Вид по неделям и месяцам",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "16",
+			"projectId": "1",
+			"createdAt": "2026-09-19"
+		},
+		{
+			"id": "54",
+			"title": "Комментарии к задачам",
+			"description": "С упоминаниями и уведомлениями",
+			"status": "todo",
+			"priority": "high",
+			"assigneeId": "17",
+			"projectId": "1",
+			"createdAt": "2026-09-20"
+		},
+		{
+			"id": "55",
+			"title": "История изменений",
+			"description": "Audit log для задач",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "18",
+			"projectId": "1",
+			"createdAt": "2026-09-21"
+		},
+		{
+			"id": "56",
+			"title": "Мобильная версия",
+			"description": "Адаптив для планшетов и телефонов",
+			"status": "in-progress",
+			"priority": "high",
+			"assigneeId": "19",
+			"projectId": "1",
+			"createdAt": "2026-09-22"
+		},
+		{
+			"id": "57",
+			"title": "Интеграция с Jira",
+			"description": "Импорт задач",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "20",
+			"projectId": "1",
+			"createdAt": "2026-09-23"
+		},
+		{
+			"id": "58",
+			"title": "Шаблоны задач",
+			"description": "Быстрое создание типовых задач",
+			"status": "todo",
+			"priority": "low",
+			"assigneeId": "3",
+			"projectId": "1",
+			"createdAt": "2026-09-24"
+		},
+		{
+			"id": "59",
+			"title": "Поиск по задачам",
+			"description": "Full-text search",
+			"status": "in-progress",
+			"priority": "medium",
+			"assigneeId": "4",
+			"projectId": "1",
+			"createdAt": "2026-09-25"
+		},
+		{
+			"id": "60",
+			"title": "Настройки пользователя",
+			"description": "Профиль, уведомления, тема",
+			"status": "todo",
+			"priority": "medium",
+			"assigneeId": "5",
+			"projectId": "1",
+			"createdAt": "2026-09-26"
+		}
+	]
+}
