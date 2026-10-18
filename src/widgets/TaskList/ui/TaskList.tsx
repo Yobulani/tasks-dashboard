@@ -1,19 +1,16 @@
-import { useGetProjectsQuery } from '@/entities/project'
+import type { Project } from '@/entities/project'
 import { TaskCard, type Task } from '@/entities/task'
-import { useGetUsersQuery } from '@/entities/user'
-import { useMap } from '@/shared/lib/useMap'
-import { TaskActions } from './TaskActions'
+import type { User } from '@/entities/user'
+import { TaskActions } from '@/features/task-actions'
+import { getById } from '@/shared/lib/getById'
 
 interface TaskListProps {
 	tasks?: Task[]
+	usersMap: Map<string, User>
+	projectsMap: Map<string, Project>
 }
 
-export const TaskList = ({ tasks }: TaskListProps) => {
-	const { data: users } = useGetUsersQuery()
-	const { data: projects } = useGetProjectsQuery()
-	const usersMap = useMap(users, 'id')
-	const projectsMap = useMap(projects, 'id')
-
+export const TaskList = ({ tasks, usersMap, projectsMap }: TaskListProps) => {
 	if (!tasks || tasks.length === 0) {
 		return <p className='text-foreground-muted'>Задач пока нет</p>
 	}
@@ -24,10 +21,8 @@ export const TaskList = ({ tasks }: TaskListProps) => {
 				<TaskCard
 					key={task.id}
 					task={task}
-					assigneeName={
-						task.assigneeId ? usersMap.get(task.assigneeId)?.name : ''
-					}
-					projectName={projectsMap.get(task.projectId)?.name}
+					assigneeName={getById(usersMap, task.assigneeId)?.name}
+					projectName={getById(projectsMap, task.projectId)?.name}
 					actions={<TaskActions task={task}></TaskActions>}
 				></TaskCard>
 			))}
