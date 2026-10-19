@@ -21,7 +21,23 @@ export const taskApi = baseApi.injectEndpoints({
 				method: 'PUT',
 				body
 			}),
-			invalidatesTags: ['Task']
+			async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
+				const patchResult = dispatch(
+					taskApi.util.updateQueryData('getTasks', undefined, draft => {
+						const task = draft.find(t => t.id === id)
+
+						if (task) {
+							Object.assign(task, patch)
+						}
+					})
+				)
+
+				try {
+					await queryFulfilled
+				} catch (e) {
+					patchResult.undo()
+				}
+			}
 		}),
 		removeTask: build.mutation<Task, string>({
 			query: id => ({

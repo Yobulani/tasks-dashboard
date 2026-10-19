@@ -25,7 +25,7 @@ export const TaskColumn = ({
 
 	return (
 		<div
-			className={`flex flex-col gap-3 p-4 rounded-lg bg-muted/30 border border-transparent min-h-75 transition-colors ${isOver ? 'bg-muted60 border-primary' : ''}`}
+			className={`flex flex-col gap-3 p-4 rounded-lg bg-muted/30 border border-transparent min-h-75 transition-colors ${isOver ? 'bg-muted/60 border-primary' : ''}`}
 			ref={setNodeRef}
 		>
 			<h3 className='font-semibold text-foreground flex justify-between items-center'>

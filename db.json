@@ -194,34 +194,33 @@
   ],
   "tasks": [
     {
-      "id": "1",
-      "title": "Настроить роутинг",
+      "title": "Настроить роутингг",
       "description": "React Router v7, lazy loading страниц",
       "status": "done",
       "priority": "high",
-      "assigneeId": "1",
       "projectId": "1",
-      "createdAt": "2026-09-01"
+      "assigneeId": "1",
+      "id": "1"
     },
     {
-      "id": "2",
       "title": "Написать Layout",
       "description": "Сайдбар, хедер, адаптив",
-      "status": "done",
+      "status": "in-progress",
       "priority": "medium",
       "assigneeId": "3",
       "projectId": "1",
-      "createdAt": "2026-09-02"
+      "createdAt": "2026-09-02",
+      "id": "2"
     },
     {
-      "id": "3",
       "title": "Интегрировать RTK Query",
       "description": "baseApi, taskApi, userApi, projectApi",
-      "status": "done",
+      "status": "todo",
       "priority": "high",
       "assigneeId": "1",
       "projectId": "1",
-      "createdAt": "2026-09-03"
+      "createdAt": "2026-09-03",
+      "id": "3"
     },
     {
       "id": "4",
@@ -286,7 +285,7 @@
     {
       "title": "Деплой на Vercel",
       "description": "json-server на Render, фронт на Vercel",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "high",
       "assigneeId": "1",
       "projectId": "1",
@@ -296,7 +295,7 @@
     {
       "title": "Drag-and-Drop",
       "description": "Kanban-доска с @dnd-kit",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "medium",
       "assigneeId": "9",
       "projectId": "1",
@@ -306,7 +305,7 @@
     {
       "title": "Тесты",
       "description": "Vitest + React Testing Library",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "low",
       "assigneeId": "10",
       "projectId": "1",
@@ -314,34 +313,34 @@
       "id": "12"
     },
     {
-      "id": "13",
       "title": "Авторизация через OAuth",
       "description": "Google, GitHub",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "high",
       "assigneeId": "2",
       "projectId": "2",
-      "createdAt": "2026-09-17"
+      "createdAt": "2026-09-17",
+      "id": "13"
     },
     {
-      "id": "14",
       "title": "Push-уведомления",
       "description": "Firebase Cloud Messaging",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "medium",
       "assigneeId": "11",
       "projectId": "2",
-      "createdAt": "2026-09-18"
+      "createdAt": "2026-09-18",
+      "id": "14"
     },
     {
-      "id": "15",
       "title": "Офлайн-режим",
       "description": "Service Worker, IndexedDB",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "low",
       "assigneeId": "12",
       "projectId": "2",
-      "createdAt": "2026-09-19"
+      "createdAt": "2026-09-19",
+      "id": "15"
     },
     {
       "id": "16",
@@ -404,14 +403,14 @@
       "createdAt": "2026-09-04"
     },
     {
-      "id": "22",
       "title": "Мониторинг",
       "description": "Prometheus + Grafana",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "high",
       "assigneeId": "7",
       "projectId": "3",
-      "createdAt": "2026-09-06"
+      "createdAt": "2026-09-06",
+      "id": "22"
     },
     {
       "id": "23",

@@ -30,6 +30,7 @@ export const DraggableTask = ({
 				className='cursor-grab active:cursor-grabbing p-1 mt-4 text-muted-foreground hover:text-foreground transition-colors'
 				size='icon'
 				aria-label='Перетащить задачу'
+				type='button'
 				{...listeners}
 				{...attributes}
 			>

@@ -1,6 +1,6 @@
 import { useAppSelector } from '@/shared/lib/hooks'
 import { selectAuthenticated, selectUserRole } from '../model/authSlice'
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, useOutlet } from 'react-router-dom'
 import type { UserRole } from '@/shared/constants/user'
 
 interface ProtectedRouteProps {
@@ -10,6 +10,7 @@ interface ProtectedRouteProps {
 export const ProtectedRoute = ({ requiredRole }: ProtectedRouteProps) => {
 	const isAuthenticated = useAppSelector(selectAuthenticated)
 	const userRole = useAppSelector(selectUserRole)
+	const outlet = useOutlet()
 
 	if (!isAuthenticated) {
 		return (
@@ -29,5 +30,5 @@ export const ProtectedRoute = ({ requiredRole }: ProtectedRouteProps) => {
 		)
 	}
 
-	return <Outlet></Outlet>
+	return outlet
 }

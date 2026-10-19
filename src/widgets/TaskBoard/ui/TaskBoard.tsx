@@ -57,6 +57,7 @@ export const TaskBoard = ({ usersMap, projectsMap, tasks }: TaskBoardProps) => {
 				{TASK_STATUS_OPTIONS.map(status => {
 					return (
 						<TaskColumn
+							key={status.value}
 							title={status.label}
 							tasks={tasks.filter(task => task.status === status.value)}
 							projectsMap={projectsMap}
