@@ -205,7 +205,7 @@
     {
       "title": "Написать Layout",
       "description": "Сайдбар, хедер, адаптив",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "medium",
       "assigneeId": "3",
       "projectId": "1",
@@ -215,7 +215,7 @@
     {
       "title": "Интегрировать RTK Query",
       "description": "baseApi, taskApi, userApi, projectApi",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "high",
       "assigneeId": "1",
       "projectId": "1",
@@ -285,7 +285,7 @@
     {
       "title": "Деплой на Vercel",
       "description": "json-server на Render, фронт на Vercel",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "high",
       "assigneeId": "1",
       "projectId": "1",
