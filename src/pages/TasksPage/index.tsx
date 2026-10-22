@@ -2,12 +2,17 @@ import { Button } from '@/components/ui/button'
 import { useGetProjectsQuery } from '@/entities/project'
 import { TaskCardSkeletonList, useGetTasksQuery } from '@/entities/task'
 import { useGetUsersQuery } from '@/entities/user'
+import {
+	TaskFilters,
+	useFilteredTasks,
+	type TaskFiltersState
+} from '@/features/task-filters'
 import { TaskFormDialog } from '@/features/task-form'
 import { useMap } from '@/shared/lib/useMap'
 import { TaskBoard, TaskBoardSkeleton } from '@/widgets/TaskBoard'
 import { TaskList } from '@/widgets/TaskList/ui/TaskList'
 import { KanbanSquare, LayoutList } from 'lucide-react'
-import { useState } from 'react'
+import { useDeferredValue, useState } from 'react'
 
 const TasksPage = () => {
 	const { data: users } = useGetUsersQuery()
@@ -18,17 +23,26 @@ const TasksPage = () => {
 		'dashboard'
 	)
 	const { isLoading, isError, data: tasks } = useGetTasksQuery()
+	const [filters, setFilters] = useState<TaskFiltersState>({
+		search: '',
+		priority: '',
+		status: ''
+	})
+
+	const filteredTasks = useFilteredTasks(tasks, filters)
+
+	const deferredTasks = useDeferredValue(filteredTasks)
 
 	const content =
 		displayMode === 'list' ? (
 			<TaskList
 				usersMap={usersMap}
 				projectsMap={projectsMap}
-				tasks={tasks}
+				tasks={deferredTasks}
 			></TaskList>
 		) : (
 			<TaskBoard
-				tasks={tasks}
+				tasks={deferredTasks}
 				usersMap={usersMap}
 				projectsMap={projectsMap}
 			></TaskBoard>
@@ -63,6 +77,11 @@ const TasksPage = () => {
 					<LayoutList /> Список
 				</Button>
 			</div>
+
+			<TaskFilters
+				filters={filters}
+				onChange={setFilters}
+			></TaskFilters>
 
 			<TaskFormDialog></TaskFormDialog>
 
