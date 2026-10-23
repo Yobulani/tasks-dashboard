@@ -41,7 +41,7 @@ export const TaskColumn = ({
 						task={task}
 						projectName={getById(projectsMap, task.projectId)?.name}
 						assigneeName={getById(usersMap, task.assigneeId)?.name}
-						actions={<TaskActions task={task}></TaskActions>}
+						actions={TaskActions}
 					></DraggableTask>
 				))}
 			</div>

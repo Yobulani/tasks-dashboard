@@ -1,27 +1,59 @@
+import { FolderIcon, UserIcon } from 'lucide-react'
 import type { Task } from '../model/types'
-import { memo, type ReactNode } from 'react'
+import { memo } from 'react'
+import { TaskStatusBadge } from './TaskStatusBadge'
 
 interface TaskCardProps {
 	task: Task
 	assigneeName?: string
 	projectName?: string
-	actions?: ReactNode
+	actions?: React.ComponentType<{ task: Task }>
+	hideStatus?: boolean
 }
 
 export const TaskCard = memo(
-	({ task, actions, assigneeName, projectName }: TaskCardProps) => {
+	({
+		task,
+		assigneeName,
+		projectName,
+		actions: Actions,
+		hideStatus
+	}: TaskCardProps) => {
 		return (
-			<div className='bg-card text-card-foreground p-4 rounded-lg border border-border shadow-sm'>
+			<div className='relative bg-card p-4 rounded-lg border border-border shadow-sm hover:border-primary/50 transition-colors'>
 				<div>
-					<h3 className='font-semibold text-foreground'>{task.title}</h3>
-					<p className='text-sm text-muted-foreground'>{task.description}</p>
-					<p>Исполнитель: {assigneeName ?? 'Исполнитель не назначен'}</p>
-					<p>Проект: {projectName ?? 'Проект не назначен'}</p>
-					<span className='inline-block mt-2 text-xs px-2 py-1 rounded bg-card text-primary'>
-						{task.status}
-					</span>
+					<div className='flex justify-between items-center'>
+						<h3 className='font-semibold text-card-foreground'>{task.title}</h3>
+
+						{Actions && (
+							<div className='flex gap-2'>
+								<Actions task={task}></Actions>
+							</div>
+						)}
+					</div>
+
+					{!hideStatus && (
+						<div className='mb-2'>
+							<TaskStatusBadge status={task.status}></TaskStatusBadge>
+						</div>
+					)}
+
+					<p className='text-sm text-muted-foreground line-clamp-2 mb-4'>
+						{task.description}
+					</p>
+
+					<div className='flex flex-col items-start gap-3 text-xs text-muted-foreground'>
+						<div className='flex items-center gap-1'>
+							<UserIcon className='w-3 h-3' />
+							{assigneeName ?? 'Исполнитель не назначен'}
+						</div>
+
+						<div className='flex items-center gap-1'>
+							<FolderIcon className='w-3 h-3' />
+							{projectName ?? 'Проект не назначен'}
+						</div>
+					</div>
 				</div>
-				{actions && <div className='flex gap-2'>{actions}</div>}
 			</div>
 		)
 	}

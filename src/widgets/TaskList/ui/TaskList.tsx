@@ -23,7 +23,7 @@ export const TaskList = ({ tasks, usersMap, projectsMap }: TaskListProps) => {
 					task={task}
 					assigneeName={getById(usersMap, task.assigneeId)?.name}
 					projectName={getById(projectsMap, task.projectId)?.name}
-					actions={<TaskActions task={task}></TaskActions>}
+					actions={TaskActions}
 				></TaskCard>
 			))}
 		</div>

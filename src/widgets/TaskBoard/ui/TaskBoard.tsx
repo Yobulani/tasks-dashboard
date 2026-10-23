@@ -1,5 +1,5 @@
 import type { Project } from '@/entities/project'
-import { TaskCard, useUpdateTaskMutation, type Task } from '@/entities/task'
+import { TaskCard, useMoveTaskMutation, type Task } from '@/entities/task'
 import type { User } from '@/entities/user'
 import { TaskColumn } from '@/features/task-dnd'
 import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/constants/task'
@@ -19,7 +19,7 @@ interface TaskBoardProps {
 }
 
 export const TaskBoard = ({ usersMap, projectsMap, tasks }: TaskBoardProps) => {
-	const [updateTask] = useUpdateTaskMutation()
+	const [moveTask] = useMoveTaskMutation()
 	const [activeTask, setActiveTask] = useState<Task | null>(null)
 
 	if (!tasks || tasks.length === 0) {
@@ -44,7 +44,7 @@ export const TaskBoard = ({ usersMap, projectsMap, tasks }: TaskBoardProps) => {
 		const status = over.id as TaskStatus
 
 		if (task && task.status !== status) {
-			updateTask({ ...task, status })
+			moveTask({ id: task.id, status })
 		}
 	}
 
@@ -75,6 +75,7 @@ export const TaskBoard = ({ usersMap, projectsMap, tasks }: TaskBoardProps) => {
 							task={activeTask}
 							assigneeName={getById(usersMap, activeTask.assigneeId)?.name}
 							projectName={getById(projectsMap, activeTask.projectId)?.name}
+							hideStatus
 						></TaskCard>
 					</div>
 				) : null}

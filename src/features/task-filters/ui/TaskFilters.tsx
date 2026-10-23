@@ -60,7 +60,6 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 
 			{(filters.priority || filters.search || filters.status) && (
 				<Button
-					size='sm'
 					variant='ghost'
 					onClick={resetFilters}
 				>

@@ -13,23 +13,52 @@ import { TaskForm } from './TaskForm'
 interface TaskFormDialogProps {
 	initialValue?: Task
 	trigger?: ReactElement
+	open?: boolean
+	onOpenChange?: (open: boolean) => void
 }
 
 export const TaskFormDialog = ({
 	initialValue,
-	trigger
+	trigger,
+	open: controlledOpen,
+	onOpenChange: controlledOnOpenChange
 }: TaskFormDialogProps) => {
 	const isEditMode = Boolean(initialValue)
-	const [isOpen, setIsOpen] = useState(false)
+	const [internalOpen, setInternalOpen] = useState(false)
+
+	const isControlled = controlledOpen !== undefined
+	const open = isControlled ? controlledOpen : internalOpen
+
+	const setOpen = (newOpen: boolean) => {
+		if (isControlled) {
+			controlledOnOpenChange?.(newOpen)
+		} else {
+			setInternalOpen(newOpen)
+		}
+	}
+
+	const renderTrigger = () => {
+		if (trigger) {
+			return <DialogTrigger render={trigger}></DialogTrigger>
+		}
+
+		if (!isControlled) {
+			return (
+				<DialogTrigger
+					render={<Button>+ Создать задачу</Button>}
+				></DialogTrigger>
+			)
+		}
+
+		return null
+	}
 
 	return (
 		<Dialog
-			open={isOpen}
-			onOpenChange={setIsOpen}
+			open={open}
+			onOpenChange={setOpen}
 		>
-			<DialogTrigger
-				render={trigger || <Button>+ Создать задачу</Button>}
-			></DialogTrigger>
+			{renderTrigger()}
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>
@@ -38,7 +67,7 @@ export const TaskFormDialog = ({
 				</DialogHeader>
 				<TaskForm
 					initialValue={initialValue}
-					onSuccess={() => setIsOpen(false)}
+					onSuccess={() => setOpen(false)}
 				></TaskForm>
 			</DialogContent>
 		</Dialog>

@@ -16,13 +16,13 @@ export const taskApi = baseApi.injectEndpoints({
 			}),
 			invalidatesTags: ['Task']
 		}),
-		updateTask: build.mutation<Task, UpdateTaskDto>({
+		moveTask: build.mutation<Task, Pick<UpdateTaskDto, 'id' | 'status'>>({
 			query: ({ id, ...body }) => ({
 				url: `/tasks/${id}`,
-				method: 'PUT',
+				method: 'PATCH',
 				body
 			}),
-			async onQueryStarted({ id, ...patch }, { dispatch, queryFulfilled }) {
+			async onQueryStarted({ id, status }, { dispatch, queryFulfilled }) {
 				let taskTitle = 'Задача'
 
 				const patchResult = dispatch(
@@ -31,7 +31,7 @@ export const taskApi = baseApi.injectEndpoints({
 
 						if (task) {
 							taskTitle = `"${task.title}"`
-							Object.assign(task, patch)
+							Object.assign(task, { id, status })
 						}
 					})
 				)
@@ -43,6 +43,23 @@ export const taskApi = baseApi.injectEndpoints({
 				} catch (e) {
 					patchResult.undo()
 					toast.error(`Перемещение не удалось`)
+				}
+			}
+		}),
+		updateTask: build.mutation<Task, UpdateTaskDto>({
+			query: ({ id, ...body }) => ({
+				url: `/tasks/${id}`,
+				method: 'PUT',
+				body
+			}),
+			invalidatesTags: ['Task'],
+			async onQueryStarted(_, { queryFulfilled }) {
+				try {
+					await queryFulfilled
+
+					toast.success(`Задача обновлена`)
+				} catch (e) {
+					toast.error(`Не удалось обновить задачу`)
 				}
 			}
 		}),
@@ -60,5 +77,6 @@ export const {
 	useGetTasksQuery,
 	useCreateTaskMutation,
 	useUpdateTaskMutation,
+	useMoveTaskMutation,
 	useRemoveTaskMutation
 } = taskApi

@@ -11,13 +11,14 @@ import {
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
 import { useRemoveTaskMutation, type Task } from '@/entities/task'
-import { useState } from 'react'
+import { useState, type ReactElement } from 'react'
 
 interface DeleteTaskButtonProps {
 	task: Task
+	trigger?: ReactElement
 }
 
-export const DeleteTaskButton = ({ task }: DeleteTaskButtonProps) => {
+export const DeleteTaskButton = ({ task, trigger }: DeleteTaskButtonProps) => {
 	const [removeTask, { isLoading: isRemoving }] = useRemoveTaskMutation()
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -38,10 +39,12 @@ export const DeleteTaskButton = ({ task }: DeleteTaskButtonProps) => {
 		>
 			<AlertDialogTrigger
 				render={
-					<Button
-						variant='ghost'
-						size='sm'
-					></Button>
+					trigger || (
+						<Button
+							variant='ghost'
+							size='sm'
+						></Button>
+					)
 				}
 			>
 				Удалить

@@ -2,13 +2,12 @@ import { Button } from '@/components/ui/button'
 import { TaskCard, type Task } from '@/entities/task'
 import { useDraggable } from '@dnd-kit/core'
 import { GripVertical } from 'lucide-react'
-import type { ReactNode } from 'react'
 
 interface DraggableTaskProps {
 	task: Task
 	assigneeName?: string
 	projectName?: string
-	actions?: ReactNode
+	actions?: React.ComponentType<{ task: Task }>
 }
 
 export const DraggableTask = ({
@@ -23,19 +22,15 @@ export const DraggableTask = ({
 
 	return (
 		<div
-			className={`flex gap-2 items-start ${isDragging ? 'opacity-50' : ''}`}
+			className={`relative group ${isDragging ? 'opacity-50 z-50' : ''}`}
 			ref={setNodeRef}
 		>
-			<Button
-				className='cursor-grab active:cursor-grabbing p-1 mt-4 text-muted-foreground hover:text-foreground transition-colors'
-				size='icon'
+			<div
+				className='absolute bottom-0 left-0 top-0 w-2 cursor-grab active:cursor-grabbing bg-primary/40 hover:bg-primary transition-colors rounded-l-lg z-10'
 				aria-label='Перетащить задачу'
-				type='button'
 				{...listeners}
 				{...attributes}
-			>
-				<GripVertical></GripVertical>
-			</Button>
+			></div>
 
 			<div className='flex-1'>
 				<TaskCard
@@ -43,6 +38,7 @@ export const DraggableTask = ({
 					assigneeName={assigneeName}
 					projectName={projectName}
 					actions={actions}
+					hideStatus
 				></TaskCard>
 			</div>
 		</div>

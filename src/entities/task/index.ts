@@ -7,5 +7,6 @@ export {
 	useGetTasksQuery,
 	useCreateTaskMutation,
 	useUpdateTaskMutation,
-	useRemoveTaskMutation
+	useRemoveTaskMutation,
+	useMoveTaskMutation
 } from './api/taskApi'
