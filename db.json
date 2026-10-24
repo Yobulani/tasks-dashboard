@@ -205,7 +205,7 @@
     {
       "title": "Написать фигню",
       "description": "Сайдбар, хедер, адаптив",
-      "status": "todo",
+      "status": "done",
       "priority": "low",
       "projectId": "1",
       "assigneeId": "3",
@@ -284,7 +284,7 @@
     {
       "title": "Авторизация через OAuth",
       "description": "Google, GitHub",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "high",
       "assigneeId": "2",
       "projectId": "2",
@@ -294,7 +294,7 @@
     {
       "title": "Push-уведомления",
       "description": "Firebase Cloud Messaging",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "medium",
       "assigneeId": "11",
       "projectId": "2",
@@ -304,7 +304,7 @@
     {
       "title": "Офлайн-режим",
       "description": "Service Worker, IndexedDB",
-      "status": "in-progress",
+      "status": "todo",
       "priority": "low",
       "assigneeId": "12",
       "projectId": "2",

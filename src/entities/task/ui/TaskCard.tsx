@@ -2,6 +2,7 @@ import { FolderIcon, UserIcon } from 'lucide-react'
 import type { Task } from '../model/types'
 import { memo } from 'react'
 import { TaskStatusBadge } from './TaskStatusBadge'
+import { TaskCardPriorityBadge } from './TaskCardPriorityBadge'
 
 interface TaskCardProps {
 	task: Task
@@ -23,7 +24,14 @@ export const TaskCard = memo(
 			<div className='relative bg-card p-4 rounded-lg border border-border shadow-sm hover:border-primary/50 transition-colors'>
 				<div>
 					<div className='flex justify-between items-center'>
-						<h3 className='font-semibold text-card-foreground'>{task.title}</h3>
+						<div className='flex items-center gap-1 flex-wrap'>
+							<h3 className='font-semibold text-card-foreground'>
+								{task.title}
+							</h3>
+							<TaskCardPriorityBadge
+								priority={task.priority}
+							></TaskCardPriorityBadge>
+						</div>
 
 						{Actions && (
 							<div className='flex gap-2'>

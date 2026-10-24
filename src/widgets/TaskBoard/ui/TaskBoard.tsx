@@ -68,7 +68,7 @@ export const TaskBoard = ({ usersMap, projectsMap, tasks }: TaskBoardProps) => {
 				})}
 			</div>
 
-			<DragOverlay>
+			<DragOverlay dropAnimation={null}>
 				{activeTask ? (
 					<div>
 						<TaskCard
