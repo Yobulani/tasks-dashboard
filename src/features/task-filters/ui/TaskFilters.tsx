@@ -1,9 +1,12 @@
 import {
 	TASK_PRIORITY_OPTIONS,
-	TASK_STATUS_OPTIONS
+	TASK_STATUS_OPTIONS,
+	type TaskPriority,
+	type TaskStatus
 } from '@/shared/constants/task'
 import type { TaskFiltersState } from '../model/useFilteredTask'
 import { Button } from '@/components/ui/button'
+import { Switch } from '@/components/ui/switch'
 
 interface TaskFiltersProps {
 	filters: TaskFiltersState
@@ -11,10 +14,13 @@ interface TaskFiltersProps {
 }
 
 export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
-	const updateFilter = (key: keyof TaskFiltersState, value: string) =>
-		onChange({ ...filters, [key]: value })
+	const updateFilter = <K extends keyof TaskFiltersState>(
+		key: K,
+		value: TaskFiltersState[K]
+	) => onChange({ ...filters, [key]: value })
 
-	const resetFilters = () => onChange({ search: '', priority: '', status: '' })
+	const resetFilters = () =>
+		onChange({ ...filters, search: '', priority: '', status: '' })
 
 	return (
 		<div className='flex gap-3 mb-6'>
@@ -28,7 +34,7 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 			<select
 				className='form-control'
 				value={filters.status}
-				onChange={e => updateFilter('status', e.target.value)}
+				onChange={e => updateFilter('status', e.target.value as TaskStatus)}
 			>
 				<option value=''>Все статусы</option>
 
@@ -44,7 +50,7 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 			<select
 				className='form-control'
 				value={filters.priority}
-				onChange={e => updateFilter('priority', e.target.value)}
+				onChange={e => updateFilter('priority', e.target.value as TaskPriority)}
 			>
 				<option value=''>Все приоритеты</option>
 
@@ -57,6 +63,15 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 					</option>
 				))}
 			</select>
+
+			<div className='flex gap-2 items-center shrink-0'>
+				<Switch
+					id='only-my-tasks'
+					checked={filters.onlyMyTasks}
+					onCheckedChange={checked => updateFilter('onlyMyTasks', checked)}
+				></Switch>
+				<label htmlFor='only-my-tasks'>Только мои задачи</label>
+			</div>
 
 			{(filters.priority || filters.search || filters.status) && (
 				<Button

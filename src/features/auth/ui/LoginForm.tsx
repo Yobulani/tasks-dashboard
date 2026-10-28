@@ -1,12 +1,17 @@
 import { useGetUsersQuery } from '@/entities/user'
 import { useAppDispatch } from '@/shared/lib/hooks'
-import { useState } from 'react'
 import { login } from '../model/authSlice'
 import { useNavigate } from 'react-router-dom'
-import { FormField } from '@/shared/ui/FormField'
+import {
+	Command,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList
+} from '@/components/ui/command'
 
 export const LoginForm = () => {
-	const [selectedId, setSelectedId] = useState('')
 	const { data: users, isLoading } = useGetUsersQuery()
 	const dispatch = useAppDispatch()
 	const navigate = useNavigate()
@@ -15,8 +20,8 @@ export const LoginForm = () => {
 		return 'Загрузка...'
 	}
 
-	const handleLogin = () => {
-		const user = users?.find(item => item.id === selectedId)
+	const handleLogin = (userId: string) => {
+		const user = users?.find(item => item.id === userId)
 
 		if (user) {
 			dispatch(login(user))
@@ -32,34 +37,27 @@ export const LoginForm = () => {
 	}
 
 	return (
-		<div className='space-y-4'>
-			<div>
-				<FormField label='Выберите пользователя'>
-					<select
-						className='form-control'
-						value={selectedId}
-						onChange={e => setSelectedId(e.target.value)}
-					>
-						<option value=''>Выберите пользователя</option>
-						{users?.map(user => (
-							<option
-								key={user.id}
-								value={user.id}
-							>
-								{`${user.name} | ${user.email}`}
-							</option>
-						))}
-					</select>
-				</FormField>
-			</div>
-
-			<button
-				className='w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white rounded-md py-2'
-				disabled={!selectedId}
-				onClick={handleLogin}
-			>
-				Войти
-			</button>
-		</div>
+		<Command>
+			<CommandInput placeholder='Введите имя или e-mail'></CommandInput>
+			<CommandList>
+				<CommandEmpty>Пользователь не найден</CommandEmpty>
+				<CommandGroup heading='Пользователи'>
+					{users?.map(user => (
+						<CommandItem
+							key={user.id}
+							onSelect={user => handleLogin(user)}
+							value={user.id}
+							keywords={[user.name, user.email]}
+							className='cursor-pointer'
+						>
+							<p className={user.role === 'admin' ? 'text-green-300' : ''}>
+								{user.name}
+							</p>
+							<span className='text-muted-foreground'>{user.email}</span>
+						</CommandItem>
+					))}
+				</CommandGroup>
+			</CommandList>
+		</Command>
 	)
 }

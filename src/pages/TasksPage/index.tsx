@@ -12,11 +12,15 @@ import { TaskBoard, TaskBoardSkeleton } from '@/widgets/TaskBoard'
 import { TaskList } from '@/widgets/TaskList/ui/TaskList'
 import { useDeferredValue, useState } from 'react'
 import { DisplayModeSwitcher, type DisplayMode } from './ui/DisplayModeSwitcher'
+import { useAppSelector } from '@/shared/lib/hooks'
+import { selectCurrentUser } from '@/features/auth/model/authSlice'
 
 const TasksPage = () => {
 	const { data: users } = useGetUsersQuery()
 	const { data: projects } = useGetProjectsQuery()
 	const { isLoading, isError, data: tasks } = useGetTasksQuery()
+
+	const currentUser = useAppSelector(selectCurrentUser)
 
 	const usersMap = useMap(users, 'id')
 	const projectsMap = useMap(projects, 'id')
@@ -25,11 +29,16 @@ const TasksPage = () => {
 	const [filters, setFilters] = useState<TaskFiltersState>({
 		search: '',
 		priority: '',
-		status: ''
+		status: '',
+		onlyMyTasks: false
 	})
 
 	const deferredFilters = useDeferredValue(filters)
-	const filteredTasks = useFilteredTasks(tasks, deferredFilters)
+	const filteredTasks = useFilteredTasks(
+		tasks,
+		deferredFilters,
+		currentUser?.id
+	)
 
 	const content =
 		displayMode === 'list' ? (
