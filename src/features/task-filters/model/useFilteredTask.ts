@@ -6,13 +6,12 @@ export interface TaskFiltersState {
 	search: string
 	status: TaskStatus | ''
 	priority: TaskPriority | ''
-	onlyMyTasks: boolean
+	assigneeId: string | null
 }
 
 export const useFilteredTasks = (
 	tasks: Task[] | undefined,
-	{ search, status, priority, onlyMyTasks }: TaskFiltersState,
-	currentUserId?: string
+	{ search, status, priority, assigneeId }: TaskFiltersState
 ) => {
 	return useMemo(() => {
 		if (!tasks) {
@@ -25,11 +24,9 @@ export const useFilteredTasks = (
 				.includes(search.toLowerCase())
 			const matchesStatus = !status || task.status === status
 			const matchesPriority = !priority || task.priority === priority
-			const isAssigned = !onlyMyTasks || task.assigneeId === currentUserId
-
-			console.log(isAssigned)
+			const isAssigned = !assigneeId || task.assigneeId === assigneeId
 
 			return matchesPriority && matchesSearch && matchesStatus && isAssigned
 		})
-	}, [tasks, priority, search, status, onlyMyTasks])
+	}, [tasks, priority, search, status, assigneeId])
 }

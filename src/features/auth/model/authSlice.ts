@@ -33,10 +33,5 @@ const AuthSlice = createSlice({
 export const selectAuthenticated = (state: RootState) =>
 	state.auth.isAuthenticated
 
-export const selectCurrentUser = (state: RootState) => state.auth.user
-
-export const selectUserRole = (state: RootState) =>
-	selectCurrentUser(state)?.role
-
 export const { login, logout } = AuthSlice.actions
 export const { reducer: AuthReducer } = AuthSlice

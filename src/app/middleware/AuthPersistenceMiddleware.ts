@@ -1,5 +1,5 @@
+import { selectCurrentUser } from '@/entities/user'
 import { LOCALSTORAGE_AUTH_KEY, login, logout } from '@/features/auth'
-import { selectCurrentUser } from '@/features/auth/model/authSlice'
 import type { RootState } from '@/store/store'
 import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit'
 

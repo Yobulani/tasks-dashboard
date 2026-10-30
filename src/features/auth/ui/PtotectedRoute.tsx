@@ -1,7 +1,8 @@
 import { useAppSelector } from '@/shared/lib/hooks'
-import { selectAuthenticated, selectUserRole } from '../model/authSlice'
+import { selectAuthenticated } from '../model/authSlice'
 import { Navigate, useOutlet } from 'react-router-dom'
 import type { UserRole } from '@/shared/constants/user'
+import { selectUserRole } from '@/entities/user'
 
 interface ProtectedRouteProps {
 	requiredRole?: UserRole

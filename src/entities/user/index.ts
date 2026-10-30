@@ -8,3 +8,5 @@ export {
 	useRemoveUserMutation,
 	useUpdateUserMutation
 } from './api/userApi'
+
+export { selectCurrentUser, selectUserRole } from './selectors/selectors'

@@ -1,7 +1,8 @@
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { useNavigate } from 'react-router-dom'
-import { logout, selectCurrentUser } from '../model/authSlice'
+import { logout } from '../model/authSlice'
 import { Button } from '@/components/ui/button'
+import { selectCurrentUser } from '@/entities/user'
 
 export const LogoutButton = () => {
 	const dispatch = useAppDispatch()

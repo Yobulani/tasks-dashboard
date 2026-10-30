@@ -1,4 +1,4 @@
-import { useGetTasksQuery } from '@/entities/task'
+import { type Task } from '@/entities/task'
 import { selectTasksByPriority, selectTasksByStatus } from '../model/selectors'
 import {
 	Bar,
@@ -12,18 +12,16 @@ import {
 	YAxis
 } from 'recharts'
 
+interface TaskStatsProps {
+	tasks: Task[]
+}
+
 const STATUS_COLORS = ['#94a3b8', '#3b82f6', '#22c55e']
 const PRIORITY_COLORS = ['#22c55e', '#f59e0b', '#ef4444']
 
-export const TaskStats = () => {
-	const { stats } = useGetTasksQuery(undefined, {
-		selectFromResult: ({ data }) => ({
-			stats: {
-				byStatus: selectTasksByStatus(data ?? []),
-				byPriority: selectTasksByPriority(data ?? [])
-			}
-		})
-	})
+export const TaskStats = ({ tasks }: TaskStatsProps) => {
+	const byStatus = selectTasksByStatus(tasks)
+	const byPriority = selectTasksByPriority(tasks)
 
 	return (
 		<div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
@@ -36,7 +34,7 @@ export const TaskStats = () => {
 				>
 					<PieChart>
 						<Pie
-							data={stats.byStatus.map((item, i) => ({
+							data={byStatus.map((item, i) => ({
 								...item,
 								fill: STATUS_COLORS[i]
 							}))}
@@ -60,7 +58,7 @@ export const TaskStats = () => {
 					height={300}
 				>
 					<BarChart
-						data={stats.byPriority.map((item, i) => ({
+						data={byPriority.map((item, i) => ({
 							...item,
 							fill: PRIORITY_COLORS[i]
 						}))}

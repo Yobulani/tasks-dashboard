@@ -7,6 +7,8 @@ import {
 import type { TaskFiltersState } from '../model/useFilteredTask'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
+import { useAppSelector } from '@/shared/lib/hooks'
+import { selectCurrentUser } from '@/entities/user'
 
 interface TaskFiltersProps {
 	filters: TaskFiltersState
@@ -21,6 +23,8 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 
 	const resetFilters = () =>
 		onChange({ ...filters, search: '', priority: '', status: '' })
+
+	const currentUser = useAppSelector(selectCurrentUser)
 
 	return (
 		<div className='flex gap-3 mb-6'>
@@ -64,11 +68,16 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 				))}
 			</select>
 
-			<div className='flex gap-2 items-center shrink-0'>
+			<div className='flex gap-2 items-center shrink-0 cursor-pointer'>
 				<Switch
 					id='only-my-tasks'
-					checked={filters.onlyMyTasks}
-					onCheckedChange={checked => updateFilter('onlyMyTasks', checked)}
+					checked={currentUser?.id === filters.assigneeId}
+					onCheckedChange={checked =>
+						updateFilter(
+							'assigneeId',
+							checked ? (currentUser?.id ?? null) : null
+						)
+					}
 				></Switch>
 				<label htmlFor='only-my-tasks'>Только мои задачи</label>
 			</div>
