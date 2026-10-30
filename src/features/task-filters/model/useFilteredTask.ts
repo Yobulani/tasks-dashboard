@@ -7,11 +7,12 @@ export interface TaskFiltersState {
 	status: TaskStatus | ''
 	priority: TaskPriority | ''
 	assigneeId: string | null
+	projectId: string | null
 }
 
 export const useFilteredTasks = (
 	tasks: Task[] | undefined,
-	{ search, status, priority, assigneeId }: TaskFiltersState
+	{ search, status, priority, assigneeId, projectId }: TaskFiltersState
 ) => {
 	return useMemo(() => {
 		if (!tasks) {
@@ -25,8 +26,15 @@ export const useFilteredTasks = (
 			const matchesStatus = !status || task.status === status
 			const matchesPriority = !priority || task.priority === priority
 			const isAssigned = !assigneeId || task.assigneeId === assigneeId
+			const matchesProject = !projectId || task.projectId === projectId
 
-			return matchesPriority && matchesSearch && matchesStatus && isAssigned
+			return (
+				matchesPriority &&
+				matchesSearch &&
+				matchesStatus &&
+				isAssigned &&
+				matchesProject
+			)
 		})
-	}, [tasks, priority, search, status, assigneeId])
+	}, [tasks, priority, search, status, assigneeId, projectId])
 }

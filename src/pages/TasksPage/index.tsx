@@ -12,8 +12,12 @@ import { TaskBoard, TaskBoardSkeleton } from '@/widgets/TaskBoard'
 import { TaskList } from '@/widgets/TaskList/ui/TaskList'
 import { useDeferredValue, useState } from 'react'
 import { DisplayModeSwitcher, type DisplayMode } from './ui/DisplayModeSwitcher'
+import { useSearchParams } from 'react-router-dom'
 
 const TasksPage = () => {
+	const [searchParams] = useSearchParams()
+	const projectId = searchParams.get('projectId')
+
 	const { data: users } = useGetUsersQuery()
 	const { data: projects } = useGetProjectsQuery()
 	const { isLoading, isError, data: tasks } = useGetTasksQuery()
@@ -26,7 +30,8 @@ const TasksPage = () => {
 		search: '',
 		priority: '',
 		status: '',
-		assigneeId: null
+		assigneeId: null,
+		projectId: projectId ?? null
 	})
 
 	const deferredFilters = useDeferredValue(filters)
