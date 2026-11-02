@@ -22,7 +22,7 @@ export const userApi = baseApi.injectEndpoints({
 		updateUser: build.mutation<User, UpdateUserDto>({
 			query: ({ id, ...body }) => ({
 				url: `/users/${id}`,
-				method: 'PUT',
+				method: 'PATCH',
 				body
 			}),
 			invalidatesTags: ['User']

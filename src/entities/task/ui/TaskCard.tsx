@@ -3,6 +3,7 @@ import type { Task } from '../model/types'
 import { memo } from 'react'
 import { TaskStatusBadge } from './TaskStatusBadge'
 import { TaskCardPriorityBadge } from './TaskCardPriorityBadge'
+import { formatDate } from '@/shared/lib/formatDate'
 
 interface TaskCardProps {
 	task: Task
@@ -50,7 +51,7 @@ export const TaskCard = memo(
 						{task.description}
 					</p>
 
-					<div className='flex flex-col items-start gap-3 text-xs text-muted-foreground'>
+					<div className='flex flex-col items-start gap-3 text-xs text-muted-foreground mb-4'>
 						<div className='flex items-center gap-1'>
 							<UserIcon className='w-3 h-3' />
 							{assigneeName ?? 'Исполнитель не назначен'}
@@ -61,6 +62,10 @@ export const TaskCard = memo(
 							{projectName ?? 'Проект не назначен'}
 						</div>
 					</div>
+
+					<p className='text-xs text-muted-foreground'>
+						Создана: {formatDate(task.createdAt)}
+					</p>
 				</div>
 			</div>
 		)

@@ -2,7 +2,8 @@ export {
 	AuthReducer,
 	selectAuthenticated,
 	login,
-	logout
+	logout,
+	updateCurrentUser
 } from './model/authSlice'
 export { ProtectedRoute } from './ui/PtotectedRoute'
 export { LoginForm } from './ui/LoginForm'

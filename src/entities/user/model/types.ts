@@ -6,6 +6,7 @@ export interface User {
 	email: string
 	role: UserRole
 	avatarUrl?: string
+	createdAt?: string
 }
 
 export type CreateUserDto = Omit<User, 'id'>
