@@ -7,7 +7,7 @@ export const formatDate = (
 	}
 ): string => {
 	const date = new Date(rawDate)
-	console.log(rawDate)
+
 	if (isNaN(date.getTime())) {
 		return '—'
 	}

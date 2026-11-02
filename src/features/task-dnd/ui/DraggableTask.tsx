@@ -1,7 +1,5 @@
-import { Button } from '@/components/ui/button'
 import { TaskCard, type Task } from '@/entities/task'
 import { useDraggable } from '@dnd-kit/core'
-import { GripVertical } from 'lucide-react'
 
 interface DraggableTaskProps {
 	task: Task

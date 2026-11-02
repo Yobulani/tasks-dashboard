@@ -1,7 +1,6 @@
 import { AlertTriangle } from 'lucide-react'
-import type { FallbackProps } from 'react-error-boundary'
 
-export function ErrorFallback({ error }: FallbackProps) {
+export function ErrorFallback() {
 	return (
 		<div className='flex flex-col items-center justify-center min-h-100 p-8 text-center bg-background rounded-lg border border-border'>
 			<AlertTriangle className='w-12 h-12 text-destructive mb-4' />
