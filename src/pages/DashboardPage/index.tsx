@@ -14,7 +14,8 @@ const DashboardPage = () => {
 		search: '',
 		status: '',
 		priority: '',
-		assigneeId: currentUser?.id ?? null
+		assigneeId: currentUser?.id ?? null,
+		projectId: null
 	})
 
 	return (
