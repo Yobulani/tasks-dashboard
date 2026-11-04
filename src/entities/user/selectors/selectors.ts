@@ -1,4 +1,4 @@
-import type { RootState } from '@/app/store/store'
+import type { RootState } from '@/app/store/types'
 
 export const selectCurrentUser = (state: RootState) => state.auth.user
 

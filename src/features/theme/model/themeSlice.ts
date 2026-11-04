@@ -1,6 +1,6 @@
-import type { RootState } from '@/app/store/store'
 import { createSlice } from '@reduxjs/toolkit'
 import { THEME_LOCALSTORAGE_KEY } from '../constants/themeKey'
+import type { RootState } from '@/app/store/types'
 
 export type Theme = 'dark' | 'light'
 
