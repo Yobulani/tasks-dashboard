@@ -1,9 +1,9 @@
 import { useGetUsersQuery } from '@/entities/user'
-import { useFilteredUsers, UserFilters } from '@/features/user-filters'
-import { UserFormDialog } from '@/features/user-form'
 import type { UserRole } from '@/shared/constants/user'
-import { UserTable } from '@/widgets/UserTable'
+import { UserFormDialog, UserTable } from '@/widgets/UserTable'
 import { useDeferredValue, useState } from 'react'
+import { useFilteredUsers } from './model/useFilteredUsers'
+import { UserFilters } from './ui/UserFilters'
 
 const AdminUsersPage = () => {
 	const { isLoading, isError, data: users } = useGetUsersQuery()
@@ -42,9 +42,7 @@ const AdminUsersPage = () => {
 				<UserFormDialog></UserFormDialog>
 			</div>
 
-			<div className='space-y-3'>
-				<UserTable users={filteredUsers}></UserTable>
-			</div>
+			<UserTable users={filteredUsers}></UserTable>
 		</div>
 	)
 }

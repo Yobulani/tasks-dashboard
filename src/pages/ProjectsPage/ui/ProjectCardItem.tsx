@@ -1,8 +1,8 @@
 import { ProjectCard, type Project } from '@/entities/project'
 import type { Task } from '@/entities/task'
 import { useGetUsersQuery } from '@/entities/user'
-import { useProjectStats } from '@/features/project-stats'
 import { memo } from 'react'
+import { useProjectStats } from '../model/useProjectStats'
 
 interface ProjectCardItemProps {
 	project: Project

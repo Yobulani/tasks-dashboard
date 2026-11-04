@@ -5,9 +5,9 @@ import {
 	type User
 } from '@/entities/user'
 import { Controller, useForm } from 'react-hook-form'
-import { UserFormSchema, type UserFormValues } from '../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormField } from '@/shared/ui/FormField'
+import { UserFormSchema, type UserFormValues } from '../model/schema'
 
 interface UserFormProps {
 	initialValue?: User

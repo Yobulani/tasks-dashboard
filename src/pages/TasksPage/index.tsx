@@ -9,10 +9,10 @@ import {
 import { TaskFormDialog } from '@/features/task-form'
 import { useMap } from '@/shared/lib/useMap'
 import { TaskBoard, TaskBoardSkeleton } from '@/widgets/TaskBoard'
-import { TaskList } from '@/widgets/TaskList/ui/TaskList'
 import { useDeferredValue, useState } from 'react'
 import { DisplayModeSwitcher, type DisplayMode } from './ui/DisplayModeSwitcher'
 import { useSearchParams } from 'react-router-dom'
+import { TaskList } from '@/widgets/TaskList'
 
 const TasksPage = () => {
 	const [searchParams] = useSearchParams()

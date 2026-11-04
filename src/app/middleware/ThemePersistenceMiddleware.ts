@@ -1,5 +1,9 @@
-import { selectTheme, switchTheme } from '@/features/theme'
-import { THEME_LOCALSTORAGE_KEY } from '@/features/theme/constants/themeKey'
+import {
+	selectTheme,
+	switchTheme,
+	THEME_LOCALSTORAGE_KEY
+} from '@/features/theme'
+
 import { createListenerMiddleware } from '@reduxjs/toolkit'
 import type { RootState } from '../store/types'
 

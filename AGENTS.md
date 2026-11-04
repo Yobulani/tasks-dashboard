@@ -21,6 +21,14 @@ React + TypeScript + Vite. Architecture: Feature-Sliced Design (FSD).
 - Never modify `vite.config.ts` without asking.
 - Never commit `.env` files.
 
-# FSD Rules
+# Architecrure & FSD Rules
 
 - Cross-imports between features are ALLOWED for composition.
+- RootState Import Exception: We consciously allow importing `RootState` from
+  `@/app/store` (or `@/app/store/rootReducer`) into lower layers (`shared`,
+  `entities`, `features`) using `import type`.
+  - Why: This is the officially recommended pattern for integrating Redux with
+    Feature-Sliced Design. Since `import type` is erased at runtime, it does not
+    create a circular dependency.
+  - Never try to "fix" this by moving `RootState` into `shared` or by redefining
+    the state interface manually. This is intentional.
