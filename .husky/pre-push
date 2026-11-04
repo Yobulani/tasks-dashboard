@@ -1,1 +1,25 @@
-npm run test:run npm run build
+# Пуш разрешён только после успешных тестов и сборки.
+# Аварийный обход проверки: git push --no-verify
+
+echo "[1/2] Запуск тестов (npm run test:run)..."
+if ! npm run test:run; then
+  echo ""
+  echo "ПУШ ОТМЕНЁН: тесты не прошли."
+  echo "Подробности — в выводе vitest выше."
+  echo "Для отладки: npm run test (watch-режим)."
+  echo "Аварийный обход проверки: git push --no-verify"
+  exit 1
+fi
+
+echo "[2/2] Сборка приложения (npm run build)..."
+if ! npm run build; then
+  echo ""
+  echo "ПУШ ОТМЕНЁН: сборка не прошла."
+  echo "Подробности — в выводе выше (чаще всего это ошибки типов tsc -b)."
+  echo "Для проверки локально: npm run build."
+  echo "Аварийный обход проверки: git push --no-verify"
+  exit 1
+fi
+
+echo ""
+echo "Все проверки пройдены: тесты и сборка успешны."
