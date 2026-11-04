@@ -20,3 +20,7 @@ React + TypeScript + Vite. Architecture: Feature-Sliced Design (FSD).
 
 - Never modify `vite.config.ts` without asking.
 - Never commit `.env` files.
+
+# FSD Rules
+
+- Cross-imports between features are ALLOWED for composition.

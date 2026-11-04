@@ -1,4 +1,4 @@
-import type { RootState } from '@/store/store'
+import type { RootState } from '@/app/store/store'
 import { createSlice } from '@reduxjs/toolkit'
 import { THEME_LOCALSTORAGE_KEY } from '../constants/themeKey'
 

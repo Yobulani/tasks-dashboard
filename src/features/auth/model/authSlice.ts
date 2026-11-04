@@ -1,5 +1,5 @@
 import type { User } from '@/entities/user'
-import type { RootState } from '@/store/store'
+import type { RootState } from '@/app/store/store'
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 import { LOCALSTORAGE_AUTH_KEY } from '../constants/localStorageKey'
 

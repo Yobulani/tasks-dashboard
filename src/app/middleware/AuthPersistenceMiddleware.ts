@@ -5,7 +5,7 @@ import {
 	logout,
 	updateCurrentUser
 } from '@/features/auth'
-import type { RootState } from '@/store/store'
+import type { RootState } from '@/app/store/store'
 import { createListenerMiddleware, isAnyOf } from '@reduxjs/toolkit'
 
 export const AuthPersistenceMiddleware = createListenerMiddleware()
