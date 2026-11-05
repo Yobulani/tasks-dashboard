@@ -17,7 +17,7 @@ interface MenuItem {
 const Sidebar = () => {
 	const Links: MenuItem[] = useMemo(
 		() => [
-			{ path: '/', label: 'Dashboard', icon: LayoutDashboard },
+			{ path: '/', label: 'Дашборд', icon: LayoutDashboard },
 			{ path: '/projects', label: 'Проекты', icon: FolderKanban },
 			{ path: '/tasks', label: 'Задачи', icon: CheckSquare },
 			{ path: '/profile', label: 'Профиль', icon: User }
@@ -26,10 +26,11 @@ const Sidebar = () => {
 	)
 
 	return (
-		<aside className='w-64 flex flex-col h-screen bg-card border-r '>
+		<aside className='w-16 md:w-64 flex flex-col h-screen bg-card border-r'>
 			<nav className='flex-1 p-6 flex-col space-y-1'>
 				{Links.map(({ path, label, icon: Icon }) => (
 					<NavLink
+						viewTransition
 						className={({ isActive }) =>
 							`flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors ${
 								isActive
@@ -41,7 +42,7 @@ const Sidebar = () => {
 						key={label}
 					>
 						<Icon className='w-5 h-5' />
-						{label}
+						<span className='hidden md:inline-block'>{label}</span>
 					</NavLink>
 				))}
 			</nav>

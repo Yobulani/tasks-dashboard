@@ -1,5 +1,5 @@
 import { LoginForm } from '@/features/auth'
-import { useDocumentTitle } from '@/shared/lib/useDocumentTitle'
+import { useDocumentTitle } from '@/shared/lib'
 
 const LoginPage = () => {
 	useDocumentTitle('Авторизация')

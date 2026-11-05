@@ -3,7 +3,7 @@ import type { Task } from '../model/types'
 import { memo } from 'react'
 import { TaskStatusBadge } from './TaskStatusBadge'
 import { TaskCardPriorityBadge } from './TaskCardPriorityBadge'
-import { formatDate } from '@/shared/lib/formatDate'
+import { formatDate } from '@/shared/lib'
 
 interface TaskCardProps {
 	task: Task

@@ -3,11 +3,11 @@ import {
 	TASK_STATUS_OPTIONS,
 	type TaskPriority,
 	type TaskStatus
-} from '@/shared/constants/task'
+} from '@/shared/constants'
 import type { TaskFiltersState } from '../model/useFilteredTask'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useAppSelector } from '@/shared/lib'
 import { selectCurrentUser } from '@/entities/user'
 
 interface TaskFiltersProps {

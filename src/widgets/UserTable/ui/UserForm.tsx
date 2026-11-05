@@ -6,7 +6,7 @@ import {
 } from '@/entities/user'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { FormField } from '@/shared/ui/FormField'
+import { FormField } from '@/shared/ui'
 import { UserFormSchema, type UserFormValues } from '../model/schema'
 
 interface UserFormProps {

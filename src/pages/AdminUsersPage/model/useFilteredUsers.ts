@@ -1,5 +1,5 @@
 import type { User } from '@/entities/user'
-import type { UserRole } from '@/shared/constants/user'
+import type { UserRole } from '@/shared/constants'
 import { useMemo } from 'react'
 
 interface Filters {

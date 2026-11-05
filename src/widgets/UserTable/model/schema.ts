@@ -1,4 +1,4 @@
-import { USER_ROLES } from '@/shared/constants/user'
+import { USER_ROLES } from '@/shared/constants'
 import z from 'zod'
 
 export const UserFormSchema = z.object({

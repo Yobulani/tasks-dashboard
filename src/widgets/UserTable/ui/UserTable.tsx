@@ -7,7 +7,7 @@ import {
 	Table
 } from '@/components/ui/table'
 import { type User } from '@/entities/user'
-import { useSortableData } from '@/shared/lib/useSortableData'
+import { useSortableData } from '@/shared/lib'
 import { ArrowDown, ArrowUp, LucideSquarePen, LucideTrash } from 'lucide-react'
 import { DeleteUserButton } from './DeleteUserButton'
 import { UserFormDialog } from './UserFormDialog'

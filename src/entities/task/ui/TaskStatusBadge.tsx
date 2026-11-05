@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { type TaskStatus } from '@/shared/constants/task'
+import { type TaskStatus } from '@/shared/constants'
 
 interface TaskStatusBadgeProps {
 	status: TaskStatus

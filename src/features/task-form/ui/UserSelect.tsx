@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from '@/entities/user'
-import { FormField } from '@/shared/ui/FormField'
+import { FormField } from '@/shared/ui'
 
 interface UserSelectProps {
 	value: string | null

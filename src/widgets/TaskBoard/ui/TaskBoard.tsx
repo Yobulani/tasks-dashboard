@@ -2,8 +2,8 @@ import type { Project } from '@/entities/project'
 import { TaskCard, useMoveTaskMutation, type Task } from '@/entities/task'
 import type { User } from '@/entities/user'
 import { TaskColumn } from '@/features/task-dnd'
-import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/constants/task'
-import { getById } from '@/shared/lib/getById'
+import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/constants'
+import { getById } from '@/shared/lib'
 import {
 	DndContext,
 	DragOverlay,

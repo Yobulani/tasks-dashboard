@@ -1,4 +1,4 @@
-import { PageLoader } from '@/shared/ui/PageLoader'
+import { PageLoader } from '@/shared/ui'
 import Header from '@/widgets/Header'
 import Sidebar from '@/widgets/Sidebar'
 import { Suspense } from 'react'

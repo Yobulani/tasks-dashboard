@@ -1,5 +1,5 @@
 import { selectTheme } from '@/features/theme'
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useAppSelector } from '@/shared/lib'
 import { useEffect, type ReactNode } from 'react'
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {

@@ -5,10 +5,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useRef, useState, type ChangeEvent } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Camera } from 'lucide-react'
-import { FormField } from '@/shared/ui/FormField'
+import { FormField } from '@/shared/ui'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useAppDispatch } from '@/shared/lib'
 import { updateCurrentUser } from '@/features/auth'
 
 const MAX_FILE_SIZE_MB = 2

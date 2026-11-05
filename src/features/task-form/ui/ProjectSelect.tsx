@@ -1,5 +1,5 @@
 import { useGetProjectsQuery } from '@/entities/project'
-import { FormField } from '@/shared/ui/FormField'
+import { FormField } from '@/shared/ui'
 
 interface ProjectSelectProps {
 	value: string

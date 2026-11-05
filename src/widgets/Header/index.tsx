@@ -2,9 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { selectCurrentUser } from '@/entities/user'
 import { LogoutButton } from '@/features/auth'
 import { SwitchThemeButton } from '@/features/theme'
-import { useAppSelector } from '@/shared/lib/hooks'
-import { useDocumentTitle } from '@/shared/lib/useDocumentTitle'
-import { useRouteTitle } from '@/shared/lib/useRouteTitle'
+import { useAppSelector, useDocumentTitle, useRouteTitle } from '@/shared/lib'
 
 const Header = () => {
 	const user = useAppSelector(selectCurrentUser)

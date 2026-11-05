@@ -1,7 +1,7 @@
 import { useGetProjectsQuery } from '@/entities/project'
 import { useGetTasksQuery } from '@/entities/task'
 import { useGetUsersQuery } from '@/entities/user'
-import { StatCard } from '@/shared/ui/StatCard'
+import { StatCard } from '@/shared/ui'
 
 export const AdminStats = () => {
 	const { data: users } = useGetUsersQuery()

@@ -1,7 +1,7 @@
 import { useGetTasksQuery } from '@/entities/task'
 import { selectCurrentUser } from '@/entities/user'
 import { useFilteredTasks } from '@/features/task-filters'
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useAppSelector } from '@/shared/lib'
 import { TaskStats } from '@/widgets/TaskStats'
 import { UserStats } from '@/widgets/UserStats'
 

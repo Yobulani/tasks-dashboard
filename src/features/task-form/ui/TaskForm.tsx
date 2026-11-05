@@ -9,10 +9,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import {
 	TASK_PRIORITY_OPTIONS,
 	TASK_STATUS_OPTIONS
-} from '@/shared/constants/task'
+} from '@/shared/constants'
 import { UserSelect } from './UserSelect'
 import { ProjectSelect } from './ProjectSelect'
-import { FormField } from '@/shared/ui/FormField'
+import { FormField } from '@/shared/ui'
 
 interface TaskFormProps {
 	initialValue?: Task

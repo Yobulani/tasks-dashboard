@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/lib'
 import { selectTheme, switchTheme } from '../model/themeSlice'
 import { Moon, Sun } from 'lucide-react'
 

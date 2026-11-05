@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from '@/entities/user'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useAppDispatch } from '@/shared/lib'
 import { login } from '../model/authSlice'
 import { useNavigate } from 'react-router-dom'
 import {

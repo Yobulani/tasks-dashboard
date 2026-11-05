@@ -1,5 +1,5 @@
 import { selectCurrentUser } from '@/entities/user'
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useAppSelector } from '@/shared/lib'
 import { ProfileView } from './ui/ProfileView'
 import { useState } from 'react'
 import { ProfileForm } from './ui/ProfileForm'

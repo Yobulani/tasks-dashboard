@@ -1,4 +1,4 @@
-import { baseApi } from '@/shared/api/baseApi'
+import { baseApi } from '@/shared/api'
 import { type Project } from '../model/types'
 
 export const projectApi = baseApi.injectEndpoints({

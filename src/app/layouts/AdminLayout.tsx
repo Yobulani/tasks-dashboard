@@ -2,7 +2,7 @@ import Header from '@/widgets/Header'
 import AdminSidebar from '@/widgets/AdminSidebar'
 import { Outlet } from 'react-router-dom'
 import { Suspense } from 'react'
-import { PageLoader } from '@/shared/ui/PageLoader'
+import { PageLoader } from '@/shared/ui'
 
 const AdminLayout = () => {
 	return (

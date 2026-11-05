@@ -2,7 +2,7 @@ import type { Project } from '@/entities/project'
 import { TaskCard, type Task } from '@/entities/task'
 import type { User } from '@/entities/user'
 import { TaskActions } from '@/features/task-actions'
-import { getById } from '@/shared/lib/getById'
+import { getById } from '@/shared/lib'
 
 interface TaskListProps {
 	tasks?: Task[]

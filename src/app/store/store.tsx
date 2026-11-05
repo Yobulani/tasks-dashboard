@@ -2,7 +2,7 @@ import { AuthPersistenceMiddleware } from '@/app/middleware/AuthPersistenceMiddl
 import { ThemePersistenceMiddleware } from '@/app/middleware/ThemePersistenceMiddleware'
 import { AuthReducer } from '@/features/auth'
 import { ThemeReducer } from '@/features/theme'
-import { baseApi } from '@/shared/api/baseApi'
+import { baseApi } from '@/shared/api'
 import { configureStore } from '@reduxjs/toolkit'
 
 export const store = configureStore({

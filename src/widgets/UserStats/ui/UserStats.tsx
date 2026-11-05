@@ -1,5 +1,5 @@
 import type { Task } from '@/entities/task'
-import { StatCard } from '@/shared/ui/StatCard'
+import { StatCard } from '@/shared/ui'
 
 interface UserStatsProps {
 	tasks: Task[]

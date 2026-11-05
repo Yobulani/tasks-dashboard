@@ -6,7 +6,7 @@ import App from './App.tsx'
 import { store } from './app/store/store.tsx'
 import { ThemeProvider } from './app/providers/ThemeProvides.tsx'
 import { ErrorBoundary } from 'react-error-boundary'
-import { ErrorFallback } from './shared/ui/ErrorFallback.tsx'
+import { ErrorFallback } from '@/shared/ui'
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>

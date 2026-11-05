@@ -1,4 +1,4 @@
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useAppDispatch } from '@/shared/lib'
 import { useNavigate } from 'react-router-dom'
 import { logout } from '../model/authSlice'
 import { Button } from '@/components/ui/button'

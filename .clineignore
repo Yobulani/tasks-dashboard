@@ -1,0 +1,15 @@
+# Зависимости
+
+node_modules/ \*\*/node_modules/
+
+# Сборка
+
+dist/ build/
+
+# Кэш и тесты
+
+coverage/ .vite/
+
+# Секреты
+
+.env .env.\*
