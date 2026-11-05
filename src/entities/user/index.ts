@@ -9,4 +9,4 @@ export {
 	useUpdateUserMutation
 } from './api/userApi'
 
-export { selectCurrentUser, selectUserRole } from './selectors/selectors'
+export { selectCurrentUser, selectUserRole } from './model/selectors'
