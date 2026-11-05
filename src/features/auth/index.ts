@@ -8,4 +8,4 @@ export {
 export { ProtectedRoute } from './ui/PtotectedRoute'
 export { LoginForm } from './ui/LoginForm'
 export { LogoutButton } from './ui/LogoutButton'
-export { LOCALSTORAGE_AUTH_KEY } from './constants/localStorageKey'
+export { LOCALSTORAGE_AUTH_KEY } from './config/localStorageKey'

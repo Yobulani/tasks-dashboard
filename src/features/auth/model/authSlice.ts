@@ -1,6 +1,6 @@
 import type { User } from '@/entities/user'
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { LOCALSTORAGE_AUTH_KEY } from '../constants/localStorageKey'
+import { LOCALSTORAGE_AUTH_KEY } from '../config/localStorageKey'
 import type { RootState } from '@/app/store/types'
 
 const storedUser = localStorage.getItem(LOCALSTORAGE_AUTH_KEY)

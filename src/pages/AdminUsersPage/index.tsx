@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from '@/entities/user'
-import type { UserRole } from '@/shared/constants'
+import type { UserRole } from '@/shared/config'
 import { UserFormDialog, UserTable } from '@/widgets/UserTable'
 import { useDeferredValue, useState } from 'react'
 import { useFilteredUsers } from './model/useFilteredUsers'

@@ -1,5 +1,5 @@
 import { UserRoleSelect } from '@/entities/user'
-import type { UserRole } from '@/shared/constants'
+import type { UserRole } from '@/shared/config'
 
 interface UserFiltersProps {
 	search: string

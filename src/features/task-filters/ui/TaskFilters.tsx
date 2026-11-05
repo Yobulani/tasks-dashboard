@@ -3,7 +3,7 @@ import {
 	TASK_STATUS_OPTIONS,
 	type TaskPriority,
 	type TaskStatus
-} from '@/shared/constants'
+} from '@/shared/config'
 import type { TaskFiltersState } from '../model/useFilteredTask'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'

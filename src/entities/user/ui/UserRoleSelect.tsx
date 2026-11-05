@@ -1,4 +1,4 @@
-import { USER_ROLE_OPTIONS, type UserRole } from '@/shared/constants'
+import { USER_ROLE_OPTIONS, type UserRole } from '@/shared/config'
 
 interface UserRoleSelectProps {
 	value: UserRole | null

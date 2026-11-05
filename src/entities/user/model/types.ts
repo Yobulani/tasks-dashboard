@@ -1,4 +1,4 @@
-import type { UserRole } from '@/shared/constants'
+import type { UserRole } from '@/shared/config'
 
 export interface User {
 	id: string

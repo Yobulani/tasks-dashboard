@@ -1,4 +1,4 @@
-import { TASK_PRIORITIES, TASK_STATUSES } from '@/shared/constants'
+import { TASK_PRIORITIES, TASK_STATUSES } from '@/shared/config'
 import { z } from 'zod'
 
 export const taskFormSchema = z.object({
