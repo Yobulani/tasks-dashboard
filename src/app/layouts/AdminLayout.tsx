@@ -6,14 +6,16 @@ import { PageLoader } from '@/shared/ui'
 
 const AdminLayout = () => {
 	return (
-		<div className='flex h-screen bg-background-secondary text-foreground'>
+		<div className='flex h-screen w-screen bg-background-secondary text-foreground'>
 			<AdminSidebar></AdminSidebar>
-			<div className='flex flex-col flex-1'>
+			<div className='flex flex-col flex-1 min-w-0'>
 				<Header></Header>
 				<main className='flex-1 overflow-auto'>
-					<Suspense fallback={<PageLoader></PageLoader>}>
-						<Outlet></Outlet>
-					</Suspense>
+					<div className='min-w-5xl'>
+						<Suspense fallback={<PageLoader></PageLoader>}>
+							<Outlet></Outlet>
+						</Suspense>
+					</div>
 				</main>
 			</div>
 		</div>

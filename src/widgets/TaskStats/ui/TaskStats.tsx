@@ -24,8 +24,8 @@ export const TaskStats = ({ tasks }: TaskStatsProps) => {
 	const byPriority = selectTasksByPriority(tasks)
 
 	return (
-		<div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
-			<div className='bg-card p-6 rounded-lg border  shadow-sm'>
+		<div className='grid grid-cols-2 gap-6'>
+			<div className='bg-card p-6 rounded-lg border shadow-sm'>
 				<h3 className='text-lg font-semibold mb-4'>Задачи по статусам</h3>
 
 				<ResponsiveContainer

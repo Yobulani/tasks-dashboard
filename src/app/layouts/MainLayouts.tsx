@@ -8,12 +8,14 @@ const MainLayout = () => {
 	const outlet = useOutlet()
 
 	return (
-		<div className='flex h-screen bg-background-secondary text-foreground'>
+		<div className='flex h-screen w-screen bg-background-secondary text-foreground'>
 			<Sidebar></Sidebar>
-			<div className='flex flex-col flex-1'>
+			<div className='flex flex-col flex-1 min-w-0'>
 				<Header></Header>
 				<main className='flex-1 overflow-auto'>
-					<Suspense fallback={<PageLoader></PageLoader>}>{outlet}</Suspense>
+					<div className='min-w-5xl'>
+						<Suspense fallback={<PageLoader></PageLoader>}>{outlet}</Suspense>
+					</div>
 				</main>
 			</div>
 		</div>
