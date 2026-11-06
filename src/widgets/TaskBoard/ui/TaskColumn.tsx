@@ -1,10 +1,9 @@
 import type { Project } from '@/entities/project'
 import type { Task } from '@/entities/task'
 import type { User } from '@/entities/user'
-import { DraggableTask } from './DraggableTask'
 import { getById } from '@/shared/lib'
-import { TaskActions } from '@/features/task-actions'
 import { useDroppable } from '@dnd-kit/core'
+import { TaskBoardItem } from './TaskBoardItem'
 
 interface TaskColumnProps {
 	id: string
@@ -36,13 +35,12 @@ export const TaskColumn = ({
 			</h3>
 			<div className='space-y-3'>
 				{tasks.map(task => (
-					<DraggableTask
+					<TaskBoardItem
 						key={task.id}
 						task={task}
 						projectName={getById(projectsMap, task.projectId)?.name}
 						assigneeName={getById(usersMap, task.assigneeId)?.name}
-						actions={TaskActions}
-					></DraggableTask>
+					></TaskBoardItem>
 				))}
 			</div>
 		</div>

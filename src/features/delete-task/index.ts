@@ -1,1 +1,2 @@
-export { DeleteTaskButton } from './ui/DeleteTaskButton'
+export { DeleteTaskDialog } from './ui/DeleteTaskDialog'
+export { DeleteTaskMenuItem } from './ui/DeleteTaskMenuItem'

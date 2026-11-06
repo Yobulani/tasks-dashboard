@@ -1,7 +1,6 @@
 import type { Project } from '@/entities/project'
 import { TaskCard, useMoveTaskMutation, type Task } from '@/entities/task'
 import type { User } from '@/entities/user'
-import { TaskColumn } from '@/features/task-dnd'
 import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/config'
 import { getById } from '@/shared/lib'
 import {
@@ -11,6 +10,7 @@ import {
 	type DragStartEvent
 } from '@dnd-kit/core'
 import { useState } from 'react'
+import { TaskColumn } from './TaskColumn'
 
 interface TaskBoardProps {
 	usersMap: Map<string, User>

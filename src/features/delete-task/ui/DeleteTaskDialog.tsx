@@ -13,20 +13,56 @@ import { Button } from '@/components/ui/button'
 import { useRemoveTaskMutation, type Task } from '@/entities/task'
 import { useState, type ReactElement } from 'react'
 
-interface DeleteTaskButtonProps {
+interface DeleteTaskDialogProps {
 	task: Task
 	trigger?: ReactElement
+	open?: boolean
+	onOpenChange?: (open: boolean) => void
 }
 
-export const DeleteTaskButton = ({ task, trigger }: DeleteTaskButtonProps) => {
+export const DeleteTaskDialog = ({
+	task,
+	trigger,
+	open: controlledOpen,
+	onOpenChange: controlledOpenChange
+}: DeleteTaskDialogProps) => {
 	const [removeTask, { isLoading: isRemoving }] = useRemoveTaskMutation()
-	const [isOpen, setIsOpen] = useState(false)
+	const [internalOpen, setInternalOpen] = useState(false)
+
+	const isControlled = controlledOpen !== undefined
+	const open = isControlled ? controlledOpen : internalOpen
+
+	const setOpen = (newOpen: boolean) => {
+		if (isControlled) {
+			controlledOpenChange?.(newOpen)
+		} else {
+			setInternalOpen(newOpen)
+		}
+	}
+
+	const renderTrigger = () => {
+		if (trigger) {
+			return <AlertDialogTrigger render={trigger}></AlertDialogTrigger>
+		}
+
+		if (!isControlled) {
+			return (
+				<AlertDialogTrigger
+					render={<Button>Удалить</Button>}
+				></AlertDialogTrigger>
+			)
+		}
+
+		return null
+	}
 
 	const handleDelete = async () => {
 		try {
 			await removeTask(task.id).unwrap()
 
-			setIsOpen(true)
+			controlledOpenChange
+				? controlledOpenChange(false)
+				: setInternalOpen(false)
 		} catch (e) {
 			console.log(e)
 		}
@@ -34,21 +70,10 @@ export const DeleteTaskButton = ({ task, trigger }: DeleteTaskButtonProps) => {
 
 	return (
 		<AlertDialog
-			open={isOpen}
-			onOpenChange={setIsOpen}
+			open={open}
+			onOpenChange={setOpen}
 		>
-			<AlertDialogTrigger
-				render={
-					trigger || (
-						<Button
-							variant='ghost'
-							size='sm'
-						></Button>
-					)
-				}
-			>
-				Удалить
-			</AlertDialogTrigger>
+			{renderTrigger()}
 			<AlertDialogContent>
 				<AlertDialogHeader>
 					<AlertDialogTitle>Удалить задачу?</AlertDialogTitle>

@@ -1,11 +1,12 @@
 import { TaskCard, type Task } from '@/entities/task'
 import { useDraggable } from '@dnd-kit/core'
+import type { ReactNode } from 'react'
 
 interface DraggableTaskProps {
 	task: Task
 	assigneeName?: string
 	projectName?: string
-	actions?: React.ComponentType<{ task: Task }>
+	actions?: ReactNode
 }
 
 export const DraggableTask = ({

@@ -194,7 +194,7 @@
   ],
   "tasks": [
     {
-      "title": "Настроить роутингг",
+      "title": "Настроить роутинг",
       "description": "React Router v7, lazy loading страниц",
       "status": "done",
       "priority": "high",
@@ -274,11 +274,10 @@
     {
       "title": "Тесты",
       "description": "Vitest + React Testing Library",
-      "status": "todo",
+      "status": "in-progress",
       "priority": "low",
-      "assigneeId": "10",
       "projectId": "1",
-      "createdAt": "2026-09-16",
+      "assigneeId": "10",
       "id": "12"
     },
     {

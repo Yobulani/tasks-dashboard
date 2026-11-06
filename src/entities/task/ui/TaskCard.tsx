@@ -1,6 +1,6 @@
 import { FolderIcon, UserIcon } from 'lucide-react'
 import type { Task } from '../model/types'
-import { memo } from 'react'
+import { memo, type ReactNode } from 'react'
 import { TaskStatusBadge } from './TaskStatusBadge'
 import { TaskCardPriorityBadge } from './TaskCardPriorityBadge'
 import { formatDate } from '@/shared/lib'
@@ -9,7 +9,7 @@ interface TaskCardProps {
 	task: Task
 	assigneeName?: string
 	projectName?: string
-	actions?: React.ComponentType<{ task: Task }>
+	actions?: ReactNode
 	hideStatus?: boolean
 }
 
@@ -21,6 +21,7 @@ export const TaskCard = memo(
 		actions: Actions,
 		hideStatus
 	}: TaskCardProps) => {
+		console.log(`${task.title} rendered`)
 		return (
 			<div className='relative bg-card p-4 rounded-lg border border-border shadow-sm hover:border-primary/50 transition-colors'>
 				<div>
@@ -34,11 +35,7 @@ export const TaskCard = memo(
 							></TaskCardPriorityBadge>
 						</div>
 
-						{Actions && (
-							<div className='flex gap-2'>
-								<Actions task={task}></Actions>
-							</div>
-						)}
+						{Actions && <div className='flex gap-2'>{Actions}</div>}
 					</div>
 
 					{!hideStatus && (
