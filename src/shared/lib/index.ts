@@ -1,6 +1,7 @@
 export * from './formatDate'
 export * from './getById'
 export * from './hooks'
+export * from './lazyImport'
 export * from './useDocumentTitle'
 export * from './useMap'
 export * from './useRouteTitle'

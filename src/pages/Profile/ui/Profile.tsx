@@ -1,8 +1,8 @@
 import { selectCurrentUser } from '@/entities/user'
 import { useAppSelector } from '@/shared/lib'
-import { ProfileView } from './ui/ProfileView'
+import { ProfileView } from './ProfileView'
 import { useState } from 'react'
-import { ProfileForm } from './ui/ProfileForm'
+import { ProfileForm } from './ProfileForm'
 
 const Profile = () => {
 	const [isEditing, setIsEditing] = useState(false)

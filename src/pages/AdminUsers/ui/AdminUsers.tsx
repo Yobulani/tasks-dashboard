@@ -2,8 +2,8 @@ import { useGetUsersQuery } from '@/entities/user'
 import type { UserRole } from '@/shared/config'
 import { UserFormDialog, UserTable } from '@/widgets/UserTable'
 import { useDeferredValue, useState } from 'react'
-import { useFilteredUsers } from './model/useFilteredUsers'
-import { UserFilters } from './ui/UserFilters'
+import { useFilteredUsers } from '../model/useFilteredUsers'
+import { UserFilters } from './UserFilters'
 
 const AdminUsers = () => {
 	const { isLoading, isError, data: users } = useGetUsersQuery()

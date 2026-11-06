@@ -1,7 +1,7 @@
 import { Skeleton } from '@/components/ui/skeleton'
 import { useGetProjectsQuery } from '@/entities/project'
 import { useGetTasksQuery } from '@/entities/task'
-import { ProjectCardItem } from './ui/ProjectCardItem'
+import { ProjectCardItem } from './ProjectCardItem'
 
 const Projects = () => {
 	const { data: projects, isLoading: isProjectsLoading } = useGetProjectsQuery()

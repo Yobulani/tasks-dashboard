@@ -2,17 +2,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import { ProtectedRoute } from '@/features/auth'
 import AdminLayout from './layouts/AdminLayout'
-import { lazy } from 'react'
+import { lazyImport } from '@/shared/lib'
 
-const Dashboard = lazy(() => import('@/pages/Dashboard').then(m => ({ default: m.Dashboard })))
-const Projects = lazy(() => import('@/pages/Projects'))
-const Tasks = lazy(() => import('@/pages/Tasks'))
-const Profile = lazy(() => import('@/pages/Profile'))
-const AdminDashboard = lazy(() => import('@/pages/AdminDashboard').then(m => ({ default: m.AdminDashboard })))
-const AdminProjects = lazy(() => import('@/pages/AdminProjects').then(m => ({ default: m.AdminProjects })))
-const AdminUsers = lazy(() => import('@/pages/AdminUsers'))
-const Forbidden = lazy(() => import('@/pages/Forbidden').then(m => ({ default: m.Forbidden })))
-const Login = lazy(() => import('@/pages/Login').then(m => ({ default: m.Login })))
+const Dashboard = lazyImport(() => import('@/pages/Dashboard'), 'Dashboard')
+const Projects = lazyImport(() => import('@/pages/Projects'), 'Projects')
+const Tasks = lazyImport(() => import('@/pages/Tasks'), 'Tasks')
+const Profile = lazyImport(() => import('@/pages/Profile'), 'Profile')
+const AdminDashboard = lazyImport(() => import('@/pages/AdminDashboard'), 'AdminDashboard')
+const AdminProjects = lazyImport(() => import('@/pages/AdminProjects'), 'AdminProjects')
+const AdminUsers = lazyImport(() => import('@/pages/AdminUsers'), 'AdminUsers')
+const Forbidden = lazyImport(() => import('@/pages/Forbidden'), 'Forbidden')
+const Login = lazyImport(() => import('@/pages/Login'), 'Login')
 
 const router = createBrowserRouter([
 	{
