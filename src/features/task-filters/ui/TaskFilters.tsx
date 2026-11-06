@@ -4,7 +4,7 @@ import {
 	type TaskPriority,
 	type TaskStatus
 } from '@/shared/config'
-import type { TaskFiltersState } from '../model/useFilteredTask'
+import type { TaskFiltersState } from '../model/useFilteredTasks'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { useAppSelector } from '@/shared/lib'

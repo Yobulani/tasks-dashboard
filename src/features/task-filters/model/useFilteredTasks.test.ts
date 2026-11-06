@@ -1,6 +1,6 @@
 import type { Task } from '@/entities/task'
 import { renderHook } from '@testing-library/react'
-import { useFilteredTasks, type TaskFiltersState } from './useFilteredTask'
+import { useFilteredTasks, type TaskFiltersState } from './useFilteredTasks'
 
 const emptyFilters: TaskFiltersState = {
 	search: '',

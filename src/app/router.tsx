@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import MainLayout from './layouts/MainLayouts'
+import MainLayout from './layouts/MainLayout'
 import { ProtectedRoute } from '@/features/auth'
 import AdminLayout from './layouts/AdminLayout'
 import { lazy } from 'react'
