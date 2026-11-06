@@ -4,7 +4,7 @@ import { ProfileView } from './ui/ProfileView'
 import { useState } from 'react'
 import { ProfileForm } from './ui/ProfileForm'
 
-const ProfilePage = () => {
+const Profile = () => {
 	const [isEditing, setIsEditing] = useState(false)
 	const currentUser = useAppSelector(selectCurrentUser)
 
@@ -36,4 +36,4 @@ const ProfilePage = () => {
 	)
 }
 
-export default ProfilePage
+export default Profile

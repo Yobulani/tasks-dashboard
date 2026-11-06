@@ -5,7 +5,7 @@ import { useAppSelector } from '@/shared/lib'
 import { TaskStats } from '@/widgets/TaskStats'
 import { UserStats } from '@/widgets/UserStats'
 
-const DashboardPage = () => {
+const Dashboard = () => {
 	const { data: tasks, isLoading } = useGetTasksQuery()
 
 	const currentUser = useAppSelector(selectCurrentUser)
@@ -44,4 +44,4 @@ const DashboardPage = () => {
 	)
 }
 
-export default DashboardPage
+export default Dashboard

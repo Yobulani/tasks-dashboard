@@ -3,7 +3,7 @@ import { useGetProjectsQuery } from '@/entities/project'
 import { useGetTasksQuery } from '@/entities/task'
 import { ProjectCardItem } from './ui/ProjectCardItem'
 
-const ProjectsPage = () => {
+const Projects = () => {
 	const { data: projects, isLoading: isProjectsLoading } = useGetProjectsQuery()
 	const { data: tasks, isLoading: isTasksLoading } = useGetTasksQuery()
 
@@ -37,4 +37,4 @@ const ProjectsPage = () => {
 	)
 }
 
-export default ProjectsPage
+export default Projects

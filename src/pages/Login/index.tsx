@@ -1,7 +1,7 @@
 import { LoginForm } from '@/features/auth'
 import { useDocumentTitle } from '@/shared/lib'
 
-const LoginPage = () => {
+const Login = () => {
 	useDocumentTitle('Авторизация')
 
 	return (
@@ -14,4 +14,4 @@ const LoginPage = () => {
 	)
 }
 
-export default LoginPage
+export default Login

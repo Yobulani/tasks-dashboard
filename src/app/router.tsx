@@ -4,20 +4,20 @@ import { ProtectedRoute } from '@/features/auth'
 import AdminLayout from './layouts/AdminLayout'
 import { lazy } from 'react'
 
-const DashboardPage = lazy(() => import('@/pages/DashboardPage'))
-const ProjectsPage = lazy(() => import('@/pages/ProjectsPage'))
-const TasksPage = lazy(() => import('@/pages/TasksPage'))
-const ProfilePage = lazy(() => import('@/pages/ProfilePage'))
-const AdminDashboardPage = lazy(() => import('@/pages/AdminDashboardPage'))
-const AdminProjectsPage = lazy(() => import('@/pages/AdminProjectsPage'))
-const AdminUsersPage = lazy(() => import('@/pages/AdminUsersPage'))
-const ForbiddenPage = lazy(() => import('@/pages/ForbiddenPage'))
-const LoginPage = lazy(() => import('@/pages/LoginPage'))
+const Dashboard = lazy(() => import('@/pages/Dashboard'))
+const Projects = lazy(() => import('@/pages/Projects'))
+const Tasks = lazy(() => import('@/pages/Tasks'))
+const Profile = lazy(() => import('@/pages/Profile'))
+const AdminDashboard = lazy(() => import('@/pages/AdminDashboard'))
+const AdminProjects = lazy(() => import('@/pages/AdminProjects'))
+const AdminUsers = lazy(() => import('@/pages/AdminUsers'))
+const Forbidden = lazy(() => import('@/pages/Forbidden'))
+const Login = lazy(() => import('@/pages/Login'))
 
 const router = createBrowserRouter([
 	{
 		path: '/login',
-		element: <LoginPage></LoginPage>
+		element: <Login></Login>
 	},
 	{
 		element: <ProtectedRoute requiredRole='admin'></ProtectedRoute>,
@@ -28,17 +28,17 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <AdminDashboardPage></AdminDashboardPage>,
+						element: <AdminDashboard></AdminDashboard>,
 						handle: { title: 'Статистика' }
 					},
 					{
 						path: 'projects',
-						element: <AdminProjectsPage></AdminProjectsPage>,
+						element: <AdminProjects></AdminProjects>,
 						handle: { title: 'Проекты' }
 					},
 					{
 						path: 'users',
-						element: <AdminUsersPage></AdminUsersPage>,
+						element: <AdminUsers></AdminUsers>,
 						handle: { title: 'Пользователи' }
 					}
 				]
@@ -48,29 +48,29 @@ const router = createBrowserRouter([
 	{
 		element: <ProtectedRoute></ProtectedRoute>,
 		children: [
-			{ path: '/403', element: <ForbiddenPage></ForbiddenPage> },
+			{ path: '/403', element: <Forbidden></Forbidden> },
 			{
 				path: '/',
 				element: <MainLayout></MainLayout>,
 				children: [
 					{
 						index: true,
-						element: <DashboardPage></DashboardPage>,
+						element: <Dashboard></Dashboard>,
 						handle: { title: 'Дашборд' }
 					},
 					{
 						path: 'projects',
-						element: <ProjectsPage></ProjectsPage>,
+						element: <Projects></Projects>,
 						handle: { title: 'Проекты' }
 					},
 					{
 						path: 'tasks',
-						element: <TasksPage></TasksPage>,
+						element: <Tasks></Tasks>,
 						handle: { title: 'Задачи' }
 					},
 					{
 						path: 'profile',
-						element: <ProfilePage></ProfilePage>,
+						element: <Profile></Profile>,
 						handle: { title: 'Профиль' }
 					}
 				]

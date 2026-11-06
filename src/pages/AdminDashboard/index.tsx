@@ -2,7 +2,7 @@ import { useGetTasksQuery } from '@/entities/task'
 import { AdminStats } from '@/widgets/AdminStats'
 import { TaskStats } from '@/widgets/TaskStats'
 
-const AdminDashboardPage = () => {
+const AdminDashboard = () => {
 	const { data: tasks } = useGetTasksQuery()
 
 	return (
@@ -15,4 +15,4 @@ const AdminDashboardPage = () => {
 	)
 }
 
-export default AdminDashboardPage
+export default AdminDashboard

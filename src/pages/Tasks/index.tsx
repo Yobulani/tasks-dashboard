@@ -14,7 +14,7 @@ import { DisplayModeSwitcher, type DisplayMode } from './ui/DisplayModeSwitcher'
 import { useSearchParams } from 'react-router-dom'
 import { TaskList } from '@/widgets/TaskList'
 
-const TasksPage = () => {
+const Tasks = () => {
 	const [searchParams] = useSearchParams()
 	const projectId = searchParams.get('projectId')
 
@@ -87,4 +87,4 @@ const TasksPage = () => {
 	)
 }
 
-export default TasksPage
+export default Tasks

@@ -5,7 +5,7 @@ import { useDeferredValue, useState } from 'react'
 import { useFilteredUsers } from './model/useFilteredUsers'
 import { UserFilters } from './ui/UserFilters'
 
-const AdminUsersPage = () => {
+const AdminUsers = () => {
 	const { isLoading, isError, data: users } = useGetUsersQuery()
 	const [search, setSearch] = useState('')
 	const [role, setRole] = useState<UserRole | null>(null)
@@ -47,4 +47,4 @@ const AdminUsersPage = () => {
 	)
 }
 
-export default AdminUsersPage
+export default AdminUsers
