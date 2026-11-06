@@ -23,7 +23,9 @@ const Header = () => {
 								{user?.name.charAt(0)}
 							</AvatarFallback>
 						</Avatar>
-						<span className='text-sm text-gray-600'>{user?.name}</span>
+						<span className='text-sm text-gray-600 truncate max-w-25 sm:max-w-40'>
+							{user?.name}
+						</span>
 					</div>
 					<LogoutButton></LogoutButton>
 				</div>
