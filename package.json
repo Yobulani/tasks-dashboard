@@ -9,6 +9,7 @@
 		"dev:all": "concurrently \"npm run server\" \"npm run dev\"",
 		"build": "tsc -b && vite build",
 		"lint": "oxlint",
+		"lint:arch": "steiger ./src",
 		"preview": "vite preview",
 		"test": "vitest",
 		"test:run": "vitest run",

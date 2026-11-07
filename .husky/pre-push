@@ -1,7 +1,17 @@
-# Пуш разрешён только после успешных тестов и сборки.
+# Пуш разрешён только после успешных проверок архитектуры, тестов и сборки.
 # Аварийный обход проверки: git push --no-verify
 
-echo "[1/2] Запуск тестов (npm run test:run)..."
+echo "[1/3] Проверка архитектуры FSD (npm run lint:arch)..."
+if ! npm run lint:arch; then
+  echo ""
+  echo "ПУШ ОТМЕНЁН: нарушения архитектуры FSD (steiger)."
+  echo "Подробности — в выводе steiger выше."
+  echo "Локальная проверка: npm run lint:arch."
+  echo "Аварийный обход проверки: git push --no-verify"
+  exit 1
+fi
+
+echo "[2/3] Запуск тестов (npm run test:run)..."
 if ! npm run test:run; then
   echo ""
   echo "ПУШ ОТМЕНЁН: тесты не прошли."
@@ -11,7 +21,7 @@ if ! npm run test:run; then
   exit 1
 fi
 
-echo "[2/2] Сборка приложения (npm run build)..."
+echo "[3/3] Сборка приложения (npm run build)..."
 if ! npm run build; then
   echo ""
   echo "ПУШ ОТМЕНЁН: сборка не прошла."
@@ -22,4 +32,4 @@ if ! npm run build; then
 fi
 
 echo ""
-echo "Все проверки пройдены: тесты и сборка успешны."
+echo "Все проверки пройдены: архитектура, тесты и сборка успешны."
