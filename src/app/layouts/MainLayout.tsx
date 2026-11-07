@@ -1,6 +1,6 @@
 import { PageLoader } from '@/shared/ui'
-import Header from '@/widgets/Header'
-import Sidebar from '@/widgets/Sidebar'
+import { Header } from '@/widgets/Header'
+import { Sidebar } from '@/widgets/Sidebar'
 import { Suspense } from 'react'
 import { useOutlet } from 'react-router-dom'
 

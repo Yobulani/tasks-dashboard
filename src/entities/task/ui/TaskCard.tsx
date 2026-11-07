@@ -21,7 +21,6 @@ export const TaskCard = memo(
 		actions: Actions,
 		hideStatus
 	}: TaskCardProps) => {
-		console.log(`${task.title} rendered`)
 		return (
 			<div className='relative bg-card p-4 rounded-lg border border-border shadow-sm hover:border-primary/50 transition-colors'>
 				<div>
