@@ -1,8 +1,10 @@
 import type { Task } from '@/entities/task'
-import { DraggableTask } from './DraggableTask'
+import { DraggableTask } from '../dnd/DraggableTask'
 import { memo, useState } from 'react'
-import { TaskFormDialog, TaskFormMenuItem } from '@/features/task-form'
-import { DeleteTaskDialog, DeleteTaskMenuItem } from '@/features/delete-task'
+import { TaskFormDialog } from '../dialogs/TaskFormDialog'
+import { TaskFormMenuItem } from '../action-buttons/TaskFormMenuItem'
+import { DeleteTaskDialog } from '../dialogs/DeleteTaskDialog'
+import { DeleteTaskMenuItem } from '../action-buttons/DeleteTaskMenuItem'
 import { Actions } from '@/shared/ui'
 
 type ModalType = 'edit' | 'delete' | null

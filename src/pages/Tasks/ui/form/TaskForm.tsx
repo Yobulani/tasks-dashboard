@@ -4,12 +4,9 @@ import {
 	type Task
 } from '@/entities/task'
 import { Controller, useForm } from 'react-hook-form'
-import { taskFormSchema, type TaskFormValues } from '../model/schema'
+import { taskFormSchema, type TaskFormValues } from '../../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import {
-	TASK_PRIORITY_OPTIONS,
-	TASK_STATUS_OPTIONS
-} from '@/shared/config'
+import { TASK_PRIORITY_OPTIONS, TASK_STATUS_OPTIONS } from '@/shared/config'
 import { UserSelect } from './UserSelect'
 import { ProjectSelect } from './ProjectSelect'
 import { FormField } from '@/shared/ui'

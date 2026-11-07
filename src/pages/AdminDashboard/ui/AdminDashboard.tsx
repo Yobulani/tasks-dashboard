@@ -1,5 +1,5 @@
 import { useGetTasksQuery } from '@/entities/task'
-import { AdminStats } from '@/widgets/AdminStats'
+import { AdminStats } from './AdminStats'
 import { TaskStats } from '@/widgets/TaskStats'
 
 const AdminDashboard = () => {

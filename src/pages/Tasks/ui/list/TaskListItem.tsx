@@ -1,6 +1,8 @@
 import { TaskCard, type Task } from '@/entities/task'
-import { DeleteTaskDialog, DeleteTaskMenuItem } from '@/features/delete-task'
-import { TaskFormDialog, TaskFormMenuItem } from '@/features/task-form'
+import { DeleteTaskDialog } from '../dialogs/DeleteTaskDialog'
+import { DeleteTaskMenuItem } from '../action-buttons/DeleteTaskMenuItem'
+import { TaskFormDialog } from '../dialogs/TaskFormDialog'
+import { TaskFormMenuItem } from '../action-buttons/TaskFormMenuItem'
 import { Actions } from '@/shared/ui'
 import { memo, useState } from 'react'
 

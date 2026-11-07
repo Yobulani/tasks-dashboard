@@ -6,13 +6,14 @@ import {
 	useFilteredTasks,
 	type TaskFiltersState
 } from '@/features/task-filters'
-import { TaskFormDialog } from '@/features/task-form'
+import { TaskFormDialog } from './dialogs/TaskFormDialog'
 import { useMap } from '@/shared/lib'
-import { TaskBoard, TaskBoardSkeleton } from '@/widgets/TaskBoard'
+import { TaskBoard } from './board/TaskBoard'
+import { TaskBoardSkeleton } from './board/TaskBoardSkeleton'
 import { useDeferredValue, useState } from 'react'
 import { DisplayModeSwitcher, type DisplayMode } from './DisplayModeSwitcher'
 import { useSearchParams } from 'react-router-dom'
-import { TaskList } from '@/widgets/TaskList'
+import { TaskList } from './list/TaskList'
 
 const Tasks = () => {
 	const [searchParams] = useSearchParams()

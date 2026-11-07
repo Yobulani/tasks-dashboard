@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/dialog'
 import type { Task } from '@/entities/task'
 import { useState, type ReactElement } from 'react'
-import { TaskForm } from './TaskForm'
+import { TaskForm } from '../form/TaskForm'
 
 interface TaskFormDialogProps {
 	initialValue?: Task

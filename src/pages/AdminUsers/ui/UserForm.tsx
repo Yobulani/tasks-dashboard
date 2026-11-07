@@ -7,7 +7,10 @@ import {
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormField } from '@/shared/ui'
-import { UserFormSchema, type UserFormValues } from '../model/schema'
+import {
+	UserFormSchema,
+	type UserFormValues
+} from '../../../pages/AdminUsers/model/schema'
 
 interface UserFormProps {
 	initialValue?: User
