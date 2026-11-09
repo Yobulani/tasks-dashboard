@@ -6,6 +6,7 @@ import {
 } from '@/entities/user'
 import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Input } from '@/components/ui/input'
 import { FormField } from '@/shared/ui'
 import {
 	UserFormSchema,
@@ -74,11 +75,11 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 					label='Имя'
 					error={errors.name?.message}
 				>
-					<input
+					<Input
+						className='form-admin-control'
 						{...register('name')}
 						placeholder='Иван Иванов'
-						className='form-control form-admin-control'
-					></input>
+					/>
 				</FormField>
 			</div>
 			<div>
@@ -86,11 +87,11 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 					label='E-mail'
 					error={errors.email?.message}
 				>
-					<input
+					<Input
+						className='form-admin-control'
 						{...register('email')}
 						placeholder='ivan@ivan.com'
-						className='form-control form-admin-control'
-					></input>
+					/>
 				</FormField>
 			</div>
 			<div>

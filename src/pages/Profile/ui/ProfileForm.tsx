@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Camera } from 'lucide-react'
 import { FormField } from '@/shared/ui'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { useAppDispatch } from '@/shared/lib'
 import { updateCurrentUser } from '@/features/auth'
@@ -107,7 +108,7 @@ export const ProfileForm = ({ onFinish, currentUser }: ProfileFormProps) => {
 				<p className='text-xs text-muted-foreground'>
 					Нажмите на фото, чтобы изменить
 				</p>
-				<input
+				<Input
 					type='file'
 					accept='image/*'
 					ref={fileInputRef}
@@ -125,21 +126,19 @@ export const ProfileForm = ({ onFinish, currentUser }: ProfileFormProps) => {
 						label='Имя'
 						error={errors.name?.message}
 					>
-						<input
-							className='form-control'
+						<Input
 							{...register('name')}
 							placeholder='Иван Иванов'
-						></input>
+						/>
 					</FormField>
 					<FormField
 						label='E-mail'
 						error={errors.email?.message}
 					>
-						<input
-							className='form-control'
+						<Input
 							{...register('email')}
 							placeholder='example@example.com'
-						></input>
+						/>
 					</FormField>
 				</div>
 

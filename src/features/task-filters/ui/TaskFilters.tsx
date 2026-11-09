@@ -6,6 +6,7 @@ import {
 } from '@/shared/config'
 import type { TaskFiltersState } from '../model/useFilteredTasks'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { useAppSelector } from '@/shared/lib'
 import { selectCurrentUser } from '@/entities/user'
@@ -28,13 +29,12 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 
 	return (
 		<div className='flex gap-3 mb-6'>
-			<input
-				className='form-control'
+			<Input
 				placeholder='Поиск по названию'
 				value={filters.search}
 				onChange={e => updateFilter('search', e.target.value)}
 				type='text'
-			></input>
+			/>
 			<select
 				className='form-control'
 				value={filters.status}

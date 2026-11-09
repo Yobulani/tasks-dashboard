@@ -9,6 +9,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { TASK_PRIORITY_OPTIONS, TASK_STATUS_OPTIONS } from '@/shared/config'
 import { UserSelect } from './UserSelect'
 import { ProjectSelect } from './ProjectSelect'
+import { Input } from '@/components/ui/input'
 import { FormField } from '@/shared/ui'
 
 interface TaskFormProps {
@@ -78,11 +79,10 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 					label='Название'
 					error={errors.title?.message}
 				>
-					<input
-						className='form-control'
+					<Input
 						{...register('title')}
 						placeholder='Например: написать тесты'
-					></input>
+					/>
 				</FormField>
 			</div>
 			<div>

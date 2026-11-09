@@ -1,3 +1,4 @@
+import { Input } from '@/components/ui/input'
 import { UserRoleSelect } from '@/entities/user'
 import type { UserRole } from '@/shared/config'
 
@@ -16,12 +17,12 @@ export const UserFilters = ({
 }: UserFiltersProps) => {
 	return (
 		<div className='flex gap-4'>
-			<input
-				className='form-control form-admin-control'
+			<Input
+				className='form-admin-control'
 				placeholder='Имя или e-mail'
 				value={search}
 				onChange={e => onSearchChange(e.target.value)}
-			></input>
+			/>
 			<UserRoleSelect
 				value={role}
 				onChange={onRoleChange}
