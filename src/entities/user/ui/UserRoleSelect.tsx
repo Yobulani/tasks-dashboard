@@ -1,3 +1,10 @@
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue
+} from '@/components/ui/select'
 import { USER_ROLE_OPTIONS, type UserRole } from '@/shared/config'
 
 interface UserRoleSelectProps {
@@ -11,22 +18,29 @@ export const UserRoleSelect = ({
 	value,
 	onChange
 }: UserRoleSelectProps) => {
-	return (
-		<select
-			className='form-control form-admin-control'
-			value={value ?? ''}
-			onChange={e => onChange((e.target.value as UserRole) || null)}
-		>
-			{allowAll && <option value=''>Все роли</option>}
+	const roles = allowAll
+		? [{ value: null, label: 'Все роли' }, ...USER_ROLE_OPTIONS]
+		: USER_ROLE_OPTIONS
 
-			{USER_ROLE_OPTIONS.map(role => (
-				<option
-					key={role.value}
-					value={role.value}
-				>
-					{role.label}
-				</option>
-			))}
-		</select>
+	return (
+		<Select
+			items={roles}
+			value={value}
+			onValueChange={v => onChange(v)}
+		>
+			<SelectTrigger className='w-full form-admin-control'>
+				<SelectValue />
+			</SelectTrigger>
+			<SelectContent>
+				{roles.map(role => (
+					<SelectItem
+						value={role.value}
+						key={role.value}
+					>
+						{role.label}
+					</SelectItem>
+				))}
+			</SelectContent>
+		</Select>
 	)
 }

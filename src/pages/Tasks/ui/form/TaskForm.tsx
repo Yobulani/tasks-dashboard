@@ -1,4 +1,6 @@
 import {
+	PrioritySelect,
+	StatusSelect,
 	useCreateTaskMutation,
 	useUpdateTaskMutation,
 	type Task
@@ -6,10 +8,10 @@ import {
 import { Controller, useForm } from 'react-hook-form'
 import { taskFormSchema, type TaskFormValues } from '../../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { TASK_PRIORITY_OPTIONS, TASK_STATUS_OPTIONS } from '@/shared/config'
 import { UserSelect } from './UserSelect'
 import { ProjectSelect } from './ProjectSelect'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/shared/ui'
 
 interface TaskFormProps {
@@ -90,11 +92,10 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 					label='Описание'
 					error={errors.description?.message}
 				>
-					<textarea
-						className='form-control'
+					<Textarea
 						{...register('description')}
 						rows={3}
-					></textarea>
+					/>
 				</FormField>
 			</div>
 
@@ -104,19 +105,18 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 						label='Статус'
 						error={errors.status?.message}
 					>
-						<select
-							className='form-control'
-							{...register('status')}
-						>
-							{TASK_STATUS_OPTIONS.map(status => (
-								<option
-									value={status.value}
-									key={status.value}
-								>
-									{status.label}
-								</option>
-							))}
-						</select>
+						<Controller
+							name='status'
+							control={control}
+							render={({ field }) => (
+								<StatusSelect
+									className='w-full'
+									value={field.value}
+									onChange={v => field.onChange(v)}
+									placeholder='Выберите статус'
+								></StatusSelect>
+							)}
+						/>
 					</FormField>
 				</div>
 				<div>
@@ -124,19 +124,18 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 						label='Приоритет'
 						error={errors.priority?.message}
 					>
-						<select
-							{...register('priority')}
-							className='form-control'
-						>
-							{TASK_PRIORITY_OPTIONS.map(priority => (
-								<option
-									value={priority.value}
-									key={priority.value}
-								>
-									{priority.label}
-								</option>
-							))}
-						</select>
+						<Controller
+							name='priority'
+							control={control}
+							render={({ field }) => (
+								<PrioritySelect
+									className='w-full'
+									value={field.value}
+									onChange={v => field.onChange(v)}
+									placeholder='Выберите приоритет'
+								></PrioritySelect>
+							)}
+						/>
 					</FormField>
 				</div>
 			</div>
@@ -146,34 +145,34 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 					name='assigneeId'
 					control={control}
 					render={({ field }) => (
-						<UserSelect
-							value={field.value}
-							onChange={value => field.onChange(value)}
-						></UserSelect>
+						<FormField
+							label='Пользователь'
+							error={errors.assigneeId?.message}
+						>
+							<UserSelect
+								value={field.value}
+								onChange={value => field.onChange(value)}
+							></UserSelect>
+						</FormField>
 					)}
 				></Controller>
-				{errors.assigneeId && (
-					<p className='text-sm text-red-500 mt-1'>
-						{errors.assigneeId.message}
-					</p>
-				)}
 			</div>
 			<div>
 				<Controller
 					name='projectId'
 					control={control}
 					render={({ field }) => (
-						<ProjectSelect
-							value={field.value}
-							onChange={value => field.onChange(value)}
-						></ProjectSelect>
+						<FormField
+							label='Проект'
+							error={errors.projectId?.message}
+						>
+							<ProjectSelect
+								value={field.value}
+								onChange={value => field.onChange(value)}
+							></ProjectSelect>
+						</FormField>
 					)}
 				></Controller>
-				{errors.projectId && (
-					<p className='text-sm text-red-500 mt-1'>
-						{errors.projectId.message}
-					</p>
-				)}
 			</div>
 
 			<button

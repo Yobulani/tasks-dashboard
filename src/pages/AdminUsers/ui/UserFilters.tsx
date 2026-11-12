@@ -16,7 +16,7 @@ export const UserFilters = ({
 	onSearchChange
 }: UserFiltersProps) => {
 	return (
-		<div className='flex gap-4'>
+		<div className='grid grid-cols-2 gap-4'>
 			<Input
 				className='form-admin-control'
 				placeholder='Имя или e-mail'

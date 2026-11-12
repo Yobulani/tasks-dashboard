@@ -291,13 +291,12 @@
       "id": "13"
     },
     {
-      "title": "Push-уведомления",
+      "title": "Push-уведомлени",
       "description": "Firebase Cloud Messaging",
       "status": "todo",
-      "priority": "medium",
-      "assigneeId": "11",
+      "priority": "high",
       "projectId": "2",
-      "createdAt": "2026-09-18",
+      "assigneeId": "11",
       "id": "14"
     },
     {
@@ -759,6 +758,24 @@
       "assigneeId": "5",
       "projectId": "1",
       "createdAt": "2026-09-26"
+    },
+    {
+      "title": "тест задача",
+      "description": "тест тест тест",
+      "status": "todo",
+      "priority": "high",
+      "projectId": "2",
+      "assigneeId": "3",
+      "id": "VbYtRg87O6A"
+    },
+    {
+      "title": "Задача 2",
+      "description": " задача  задача  задача  задача  задача ",
+      "status": "in-progress",
+      "priority": "high",
+      "projectId": "5",
+      "assigneeId": "4",
+      "id": "uO5Ge8FGt3U"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

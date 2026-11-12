@@ -1,5 +1,13 @@
 import { useGetProjectsQuery } from '@/entities/project'
-import { FormField } from '@/shared/ui'
+import {
+	Combobox,
+	ComboboxContent,
+	ComboboxEmpty,
+	ComboboxInput,
+	ComboboxItem,
+	ComboboxList
+} from '@/components/ui/combobox'
+import { useMemo } from 'react'
 
 interface ProjectSelectProps {
 	value: string
@@ -7,32 +15,45 @@ interface ProjectSelectProps {
 }
 
 export const ProjectSelect = ({ value, onChange }: ProjectSelectProps) => {
-	const { isLoading, data: projects } = useGetProjectsQuery()
+	const { data: projects } = useGetProjectsQuery()
+
+	const items = useMemo(
+		() =>
+			projects?.map(project => ({
+				label: project.name,
+				value: project.id
+			})) ?? [],
+		[projects]
+	)
+
+	const selectedItem = useMemo(
+		() => items.find(item => item.value === value),
+		[items, value]
+	)
 
 	return (
-		<FormField label='Проект'>
-			<select
-				value={value ?? ''}
-				onChange={e => onChange(e.target.value || null)}
-				className='form-control'
-			>
-				<option
-					value=''
-					disabled
-				>
-					Выберите проект...
-				</option>
-				{isLoading
-					? 'Загрузка...'
-					: projects?.map(project => (
-							<option
-								value={project.id}
-								key={project.id}
-							>
-								{project.name}
-							</option>
-						))}
-			</select>
-		</FormField>
+		<Combobox
+			items={items}
+			value={selectedItem ?? null}
+			onValueChange={v => onChange(!v ? null : v.value)}
+		>
+			<ComboboxInput
+				placeholder='Выберите проект...'
+				className='w-full'
+			/>
+			<ComboboxContent>
+				<ComboboxEmpty>Проект не найден</ComboboxEmpty>
+				<ComboboxList>
+					{(item: (typeof items)[number]) => (
+						<ComboboxItem
+							value={item}
+							key={item.value}
+						>
+							{item.label}
+						</ComboboxItem>
+					)}
+				</ComboboxList>
+			</ComboboxContent>
+		</Combobox>
 	)
 }

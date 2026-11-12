@@ -29,7 +29,6 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 	const {
 		register,
 		handleSubmit,
-		reset,
 		control,
 		formState: { errors }
 	} = useForm<UserFormValues>({
@@ -58,7 +57,6 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 				await createUser(data).unwrap()
 			}
 
-			reset()
 			onSuccess?.()
 		} catch (e) {
 			console.log(e)

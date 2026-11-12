@@ -1,6 +1,6 @@
 export const USER_ROLE_OPTIONS = [
-	{ value: 'admin', label: 'admin' },
-	{ value: 'user', label: 'user' }
+	{ value: 'admin', label: 'Администратор' },
+	{ value: 'user', label: 'Пользователь' }
 ] as const
 
 export type UserRole = (typeof USER_ROLE_OPTIONS)[number]['value']

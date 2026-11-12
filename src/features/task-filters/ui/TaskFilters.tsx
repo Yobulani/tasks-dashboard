@@ -1,15 +1,10 @@
-import {
-	TASK_PRIORITY_OPTIONS,
-	TASK_STATUS_OPTIONS,
-	type TaskPriority,
-	type TaskStatus
-} from '@/shared/config'
 import type { TaskFiltersState } from '../model/useFilteredTasks'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Switch } from '@/components/ui/switch'
 import { useAppSelector } from '@/shared/lib'
 import { selectCurrentUser } from '@/entities/user'
+import { PrioritySelect, StatusSelect } from '@/entities/task'
 
 interface TaskFiltersProps {
 	filters: TaskFiltersState
@@ -29,46 +24,29 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 
 	return (
 		<div className='flex gap-3 mb-6'>
-			<Input
-				placeholder='Поиск по названию'
-				value={filters.search}
-				onChange={e => updateFilter('search', e.target.value)}
-				type='text'
-			/>
-			<select
-				className='form-control'
-				value={filters.status}
-				onChange={e => updateFilter('status', e.target.value as TaskStatus)}
-			>
-				<option value=''>Все статусы</option>
+			<div className='grid gap-3 grid-cols-3'>
+				<Input
+					placeholder='Поиск по названию'
+					value={filters.search}
+					onChange={e => updateFilter('search', e.target.value)}
+					type='text'
+				/>
+				<StatusSelect
+					className='w-full'
+					value={filters.status}
+					onChange={status => updateFilter('status', status)}
+					allowAll
+				></StatusSelect>
 
-				{TASK_STATUS_OPTIONS.map(status => (
-					<option
-						value={status.value}
-						key={status.value}
-					>
-						{status.label}
-					</option>
-				))}
-			</select>
-			<select
-				className='form-control'
-				value={filters.priority}
-				onChange={e => updateFilter('priority', e.target.value as TaskPriority)}
-			>
-				<option value=''>Все приоритеты</option>
+				<PrioritySelect
+					className='w-full'
+					value={filters.priority}
+					onChange={priority => updateFilter('priority', priority)}
+					allowAll
+				></PrioritySelect>
+			</div>
 
-				{TASK_PRIORITY_OPTIONS.map(priority => (
-					<option
-						value={priority.value}
-						key={priority.value}
-					>
-						{priority.label}
-					</option>
-				))}
-			</select>
-
-			<div className='flex gap-2 items-center shrink-0 cursor-pointer'>
+			<div className='flex gap-2 items-center cursor-pointer'>
 				<Switch
 					id='only-my-tasks'
 					checked={currentUser?.id === filters.assigneeId}

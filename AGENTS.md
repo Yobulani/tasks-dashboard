@@ -32,3 +32,16 @@ React + TypeScript + Vite. Architecture: Feature-Sliced Design (FSD).
     create a circular dependency.
   - Never try to "fix" this by moving `RootState` into `shared` or by redefining
     the state interface manually. This is intentional.
+
+# Shadcn/ui Version (CRITICAL)
+
+- **We use shadcn/ui built on top of Base UI (v4+).**
+- **NEVER** install or use `@radix-ui/*` packages. The project does not have
+  them and does not need them.
+- When adding new shadcn components, use the existing CLI setup (it is already
+  configured for Base UI).
+- **Trigger/Render pattern:** Since we use Base UI, components use the `render`
+  prop (e.g., `<DialogTrigger render={<Button />} />`) instead of Radix's
+  `asChild`.
+- If you need to check how a component works, look at existing files in
+  `src/components/ui/` (e.g., `dialog.tsx`, `dropdown-menu.tsx`).

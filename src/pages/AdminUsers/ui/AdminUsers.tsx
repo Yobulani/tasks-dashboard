@@ -28,19 +28,15 @@ const AdminUsers = () => {
 
 	return (
 		<div className='p-8'>
-			<h1 className='text-2xl font-bold mb-6'>Пользователи</h1>
+			<div className='flex flex-col items-start gap-4 mb-6'>
+				<UserFormDialog></UserFormDialog>
 
-			<div className='mb-3'>
 				<UserFilters
 					search={search}
 					role={role}
 					onRoleChange={role => setRole(role)}
 					onSearchChange={search => setSearch(search)}
 				></UserFilters>
-			</div>
-
-			<div className='mb-2'>
-				<UserFormDialog></UserFormDialog>
 			</div>
 
 			<UserTable users={filteredUsers}></UserTable>
