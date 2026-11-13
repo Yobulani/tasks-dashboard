@@ -28,7 +28,7 @@ export const UserRoleSelect = ({
 			value={value}
 			onValueChange={v => onChange(v)}
 		>
-			<SelectTrigger className='w-full form-admin-control'>
+			<SelectTrigger className='w-full'>
 				<SelectValue />
 			</SelectTrigger>
 			<SelectContent>

@@ -51,7 +51,7 @@ export const TaskStats = ({ tasks }: TaskStatsProps) => {
 			</div>
 
 			<div className='bg-card p-6 rounded-lg border border-border shadow-sm'>
-				<h3 className='text-lg font-semibold mb-4'>Задачи по статусам</h3>
+				<h3 className='text-lg font-semibold mb-4'>Задачи по приоритетам</h3>
 
 				<ResponsiveContainer
 					width='100%'

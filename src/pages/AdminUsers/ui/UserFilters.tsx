@@ -18,7 +18,6 @@ export const UserFilters = ({
 	return (
 		<div className='grid grid-cols-2 gap-4'>
 			<Input
-				className='form-admin-control'
 				placeholder='Имя или e-mail'
 				value={search}
 				onChange={e => onSearchChange(e.target.value)}

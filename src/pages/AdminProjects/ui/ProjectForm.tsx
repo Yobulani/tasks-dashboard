@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/shared/ui'
 import { ProjectFormSchema, type ProjectFormValues } from '../model/schema'
+import { Button } from '@/components/ui/button'
 
 interface ProjectFormProps {
 	initialValue?: Project
@@ -74,7 +75,6 @@ export const ProjectForm = ({ initialValue, onSuccess }: ProjectFormProps) => {
 					error={errors.name?.message}
 				>
 					<Input
-						className='form-admin-control'
 						{...register('name')}
 						placeholder='Например: мобильное приложение'
 					/>
@@ -86,7 +86,6 @@ export const ProjectForm = ({ initialValue, onSuccess }: ProjectFormProps) => {
 					error={errors.description?.message}
 				>
 					<Textarea
-						className='form-admin-control'
 						{...register('description')}
 						rows={3}
 					/>
@@ -110,13 +109,14 @@ export const ProjectForm = ({ initialValue, onSuccess }: ProjectFormProps) => {
 				></Controller>
 			</div>
 
-			<button
+			<Button
 				type='submit'
+				variant='action'
 				disabled={isLoading}
-				className='w-full bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 text-white py-2 rounded-md font-medium transition-colors'
+				className='w-full'
 			>
 				{isEditMode ? 'Сохранить' : 'Создать'}
-			</button>
+			</Button>
 		</form>
 	)
 }

@@ -25,7 +25,7 @@ export const DraggableTask = ({
 			ref={setNodeRef}
 		>
 			<div
-				className='absolute bottom-0 left-0 top-0 w-2 cursor-grab active:cursor-grabbing bg-primary/40 hover:bg-primary transition-colors rounded-l-lg z-10'
+				className='absolute bottom-0 left-0 top-0 w-2 cursor-grab active:cursor-grabbing hover:bg-primary transition-colors rounded-l-lg z-10 bg-action/40'
 				aria-label='Перетащить задачу'
 				{...listeners}
 				{...attributes}

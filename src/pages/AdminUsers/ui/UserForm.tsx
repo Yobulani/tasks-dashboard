@@ -8,10 +8,8 @@ import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/ui/input'
 import { FormField } from '@/shared/ui'
-import {
-	UserFormSchema,
-	type UserFormValues
-} from '../../../pages/AdminUsers/model/schema'
+import { UserFormSchema, type UserFormValues } from '../model/schema'
+import { Button } from '@/components/ui/button'
 
 interface UserFormProps {
 	initialValue?: User
@@ -68,55 +66,51 @@ export const UserForm = ({ initialValue, onSuccess }: UserFormProps) => {
 			className='space-y-4'
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<div>
-				<FormField
-					label='Имя'
-					error={errors.name?.message}
-				>
-					<Input
-						className='form-admin-control'
-						{...register('name')}
-						placeholder='Иван Иванов'
-					/>
-				</FormField>
-			</div>
-			<div>
-				<FormField
-					label='E-mail'
-					error={errors.email?.message}
-				>
-					<Input
-						className='form-admin-control'
-						{...register('email')}
-						placeholder='ivan@ivan.com'
-					/>
-				</FormField>
-			</div>
-			<div>
-				<FormField
-					label='Роль'
-					error={errors.role?.message}
-				>
-					<Controller
-						name='role'
-						control={control}
-						render={({ field }) => (
-							<UserRoleSelect
-								value={field.value}
-								onChange={field.onChange}
-							></UserRoleSelect>
-						)}
-					></Controller>
-				</FormField>
-			</div>
+			<FormField
+				label='Имя'
+				error={errors.name?.message}
+			>
+				<Input
+					{...register('name')}
+					placeholder='Иван Иванов'
+				/>
+			</FormField>
 
-			<button
+			<FormField
+				label='E-mail'
+				error={errors.email?.message}
+			>
+				<Input
+					{...register('email')}
+					placeholder='ivan@ivan.com'
+				/>
+			</FormField>
+
+			<FormField
+				label='Роль'
+				error={errors.role?.message}
+			>
+				<Controller
+					name='role'
+					control={control}
+					render={({ field }) => (
+						<UserRoleSelect
+							value={field.value}
+							onChange={field.onChange}
+						></UserRoleSelect>
+					)}
+				></Controller>
+			</FormField>
+
+			<Button
 				type='submit'
 				disabled={isLoading}
-				className='w-full bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 text-white py-2 rounded-md font-medium transition-colors'
+				className='w-full'
+				variant='action'
+				size='lg'
 			>
 				{isEditMode ? 'Сохранить' : 'Создать'}
-			</button>
+			</Button>
 		</form>
 	)
 }

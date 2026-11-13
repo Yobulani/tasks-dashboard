@@ -4,7 +4,6 @@ import { Provider } from 'react-redux'
 import './index.css'
 import App from './App.tsx'
 import { store } from './app/store/store.ts'
-import { ThemeProvider } from './app/providers/ThemeProvider.tsx'
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorFallback } from '@/shared/ui'
 
@@ -17,9 +16,7 @@ createRoot(document.getElementById('root')!).render(
 				}}
 				FallbackComponent={ErrorFallback}
 			>
-				<ThemeProvider>
-					<App />
-				</ThemeProvider>
+				<App />
 			</ErrorBoundary>
 		</Provider>
 	</StrictMode>

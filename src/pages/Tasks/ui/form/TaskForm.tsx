@@ -13,6 +13,7 @@ import { ProjectSelect } from './ProjectSelect'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/shared/ui'
+import { Button } from '@/components/ui/button'
 
 interface TaskFormProps {
 	initialValue?: Task
@@ -175,13 +176,15 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 				></Controller>
 			</div>
 
-			<button
+			<Button
 				type='submit'
+				size='lg'
+				variant='action'
 				disabled={isLoading}
-				className='w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-300 text-white py-2 rounded-md font-medium transition-colors'
+				className='w-full'
 			>
 				{isLoading ? 'Сохранение...' : isEditMode ? 'Сохранить' : 'Создать'}
-			</button>
+			</Button>
 		</form>
 	)
 }

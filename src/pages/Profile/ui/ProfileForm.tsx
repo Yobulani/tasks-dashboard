@@ -153,6 +153,7 @@ export const ProfileForm = ({ onFinish, currentUser }: ProfileFormProps) => {
 					</Button>
 					<Button
 						type='submit'
+						variant='action'
 						disabled={isLoading || !isDirty}
 					>
 						{isLoading ? 'Сохранение...' : 'Сохранить'}
