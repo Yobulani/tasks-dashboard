@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 import {
 	Dialog,
 	DialogContent,
@@ -10,12 +9,15 @@ import type { User } from '@/entities/user'
 import { useState, type ReactElement } from 'react'
 import { UserForm } from './UserForm'
 
-interface UserFormDialog {
-	trigger?: ReactElement
+interface UserFormDialogProps {
+	trigger: ReactElement
 	initialValue?: User
 }
 
-export const UserFormDialog = ({ trigger, initialValue }: UserFormDialog) => {
+export const UserFormDialog = ({
+	trigger,
+	initialValue
+}: UserFormDialogProps) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const isEditMode = Boolean(initialValue)
 
@@ -24,16 +26,7 @@ export const UserFormDialog = ({ trigger, initialValue }: UserFormDialog) => {
 			open={isOpen}
 			onOpenChange={setIsOpen}
 		>
-			<DialogTrigger
-				render={
-					<Button
-						variant='ghost'
-						size='sm'
-					>
-						{trigger || '+ Создать пользователя'}
-					</Button>
-				}
-			></DialogTrigger>
+			<DialogTrigger render={trigger}></DialogTrigger>
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>

@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import { useGetUsersQuery } from '@/entities/user'
 import type { UserRole } from '@/shared/config'
 import { UserTable } from './UserTable'
@@ -29,7 +30,16 @@ const AdminUsers = () => {
 	return (
 		<div className='p-8'>
 			<div className='flex flex-col items-start gap-4 mb-6'>
-				<UserFormDialog></UserFormDialog>
+				<UserFormDialog
+					trigger={
+						<Button
+							variant='default'
+							size='sm'
+						>
+							+ Создать пользователя
+						</Button>
+					}
+				></UserFormDialog>
 
 				<UserFilters
 					search={search}

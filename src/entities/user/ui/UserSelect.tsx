@@ -1,4 +1,4 @@
-import { useGetUsersQuery } from '@/entities/user'
+import { useGetUsersQuery } from '../api/userApi'
 import {
 	Combobox,
 	ComboboxContent,
