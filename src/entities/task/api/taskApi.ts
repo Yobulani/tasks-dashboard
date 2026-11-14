@@ -68,7 +68,29 @@ export const taskApi = baseApi.injectEndpoints({
 				url: `/tasks/${id}`,
 				method: 'DELETE'
 			}),
-			invalidatesTags: ['Task']
+			async onQueryStarted(id, { dispatch, queryFulfilled }) {
+				let taskTitle = 'Задача'
+
+				const patchResult = dispatch(
+					taskApi.util.updateQueryData('getTasks', undefined, draft => {
+						const index = draft.findIndex(t => t.id === id)
+
+						if (index !== -1) {
+							taskTitle = `"${draft[index].title}"`
+							draft.splice(index, 1)
+						}
+					})
+				)
+
+				try {
+					await queryFulfilled
+
+					toast.success(`${taskTitle} удалена`)
+				} catch (e) {
+					patchResult.undo()
+					toast.error(`Не удалось удалить задачу`)
+				}
+			}
 		})
 	})
 })
