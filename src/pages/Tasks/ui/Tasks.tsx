@@ -7,7 +7,7 @@ import {
 	type TaskFiltersState
 } from '@/features/task-filters'
 import { TaskFormDialog } from './dialogs/TaskFormDialog'
-import { useMap } from '@/shared/lib'
+import { getById, useMap } from '@/shared/lib'
 import { TaskBoard } from './board/TaskBoard'
 import { TaskBoardSkeleton } from './board/TaskBoardSkeleton'
 import { useDeferredValue, useState } from 'react'
@@ -59,6 +59,8 @@ const Tasks = () => {
 			<TaskBoardSkeleton></TaskBoardSkeleton>
 		)
 
+	const projectName = getById(projectsMap, projectId)?.name
+
 	if (isError) {
 		return <div className='p-8 text-red-500'>Oops...</div>
 	}
@@ -66,6 +68,12 @@ const Tasks = () => {
 	return (
 		<div className='p-8'>
 			<div className='flex flex-col gap-4 mb-6'>
+				{projectName && (
+					<h2 className='text-muted-foreground'>
+						Задачи для проекта: {projectName}
+					</h2>
+				)}
+
 				<div className='flex items-center justify-between'>
 					<TaskFormDialog></TaskFormDialog>
 
@@ -75,12 +83,10 @@ const Tasks = () => {
 					></DisplayModeSwitcher>
 				</div>
 
-				<div className='flex flex-wrap gap-3 items-center'>
-					<TaskFilters
-						filters={filters}
-						onChange={setFilters}
-					></TaskFilters>
-				</div>
+				<TaskFilters
+					filters={filters}
+					onChange={setFilters}
+				></TaskFilters>
 			</div>
 
 			<div>{isLoading ? skeleton : content}</div>

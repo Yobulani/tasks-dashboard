@@ -23,7 +23,7 @@ export const TaskFilters = ({ filters, onChange }: TaskFiltersProps) => {
 	const currentUser = useAppSelector(selectCurrentUser)
 
 	return (
-		<div className='flex gap-3 mb-6'>
+		<div className='flex flex-wrap gap-3 items-center mb-6'>
 			<div className='grid gap-3 grid-cols-3'>
 				<Input
 					placeholder='Поиск по названию'
