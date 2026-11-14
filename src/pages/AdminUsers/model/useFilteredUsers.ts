@@ -1,5 +1,4 @@
-import type { User } from '@/entities/user'
-import type { UserRole } from '@/shared/config'
+import type { User, UserRole } from '@/entities/user'
 import { useMemo } from 'react'
 
 interface Filters {

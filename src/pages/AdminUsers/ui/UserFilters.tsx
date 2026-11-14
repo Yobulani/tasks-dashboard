@@ -1,6 +1,5 @@
 import { Input } from '@/components/ui/input'
-import { UserRoleSelect } from '@/entities/user'
-import type { UserRole } from '@/shared/config'
+import { UserRoleSelect, type UserRole } from '@/entities/user'
 
 interface UserFiltersProps {
 	search: string

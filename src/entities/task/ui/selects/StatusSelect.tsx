@@ -5,7 +5,7 @@ import {
 	SelectTrigger,
 	SelectValue
 } from '@/components/ui/select'
-import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/config'
+import { TASK_STATUS_OPTIONS, type TaskStatus } from '../../model/options'
 
 type StatusSelectProps = {
 	value: TaskStatus | ''

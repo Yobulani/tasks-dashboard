@@ -1,4 +1,4 @@
-import type { UserRole } from '@/shared/config'
+import type { UserRole } from './options'
 
 export interface User {
 	id: string

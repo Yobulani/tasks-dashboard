@@ -5,7 +5,7 @@ import {
 	SelectTrigger,
 	SelectValue
 } from '@/components/ui/select'
-import { USER_ROLE_OPTIONS, type UserRole } from '@/shared/config'
+import { USER_ROLE_OPTIONS, type UserRole } from '../model/options'
 
 interface UserRoleSelectProps {
 	value: UserRole | null

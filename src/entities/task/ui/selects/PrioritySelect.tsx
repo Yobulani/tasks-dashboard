@@ -5,7 +5,7 @@ import {
 	SelectTrigger,
 	SelectValue
 } from '@/components/ui/select'
-import { TASK_PRIORITY_OPTIONS, type TaskPriority } from '@/shared/config'
+import { TASK_PRIORITY_OPTIONS, type TaskPriority } from '../../model/options'
 
 type PrioritySelectProps = {
 	value: TaskPriority | ''

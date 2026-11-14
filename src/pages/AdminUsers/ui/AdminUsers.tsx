@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { useGetUsersQuery } from '@/entities/user'
-import type { UserRole } from '@/shared/config'
+import { useGetUsersQuery, type UserRole } from '@/entities/user'
 import { UserTable } from './UserTable'
 import { UserFormDialog } from './UserFormDialog'
 import { useDeferredValue, useState } from 'react'

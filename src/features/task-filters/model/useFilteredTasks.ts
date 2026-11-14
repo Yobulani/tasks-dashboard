@@ -1,5 +1,4 @@
-import type { Task } from '@/entities/task'
-import type { TaskPriority, TaskStatus } from '@/shared/config'
+import type { Task, TaskPriority, TaskStatus } from '@/entities/task'
 import { useMemo } from 'react'
 
 export interface TaskFiltersState {

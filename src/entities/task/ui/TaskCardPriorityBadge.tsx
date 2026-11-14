@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import type { TaskPriority } from '@/shared/config'
+import type { TaskPriority } from '../model/options'
 import { ArrowDown, ArrowUp, Minus } from 'lucide-react'
 
 const PRIORITY_CONFIG: Record<

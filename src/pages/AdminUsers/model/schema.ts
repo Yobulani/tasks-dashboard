@@ -1,4 +1,4 @@
-import { USER_ROLES } from '@/shared/config'
+import { USER_ROLES } from '@/entities/user'
 import z from 'zod'
 
 export const UserFormSchema = z.object({

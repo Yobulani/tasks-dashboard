@@ -1,4 +1,7 @@
 export type { User } from './model/types'
+export type { UserRole } from './model/options'
+
+export { USER_ROLE_OPTIONS, USER_ROLES } from './model/options'
 
 export { UserRoleSelect } from './ui/UserRoleSelect'
 

@@ -1,4 +1,4 @@
-import type { TaskPriority, TaskStatus } from '@/shared/config'
+import type { TaskPriority, TaskStatus } from './options'
 
 export interface Task {
 	id: string

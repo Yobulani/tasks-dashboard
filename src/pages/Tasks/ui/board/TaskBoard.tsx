@@ -1,7 +1,12 @@
 import type { Project } from '@/entities/project'
-import { TaskCard, useMoveTaskMutation, type Task } from '@/entities/task'
+import {
+	TaskCard,
+	useMoveTaskMutation,
+	TASK_STATUS_OPTIONS,
+	type Task,
+	type TaskStatus
+} from '@/entities/task'
 import type { User } from '@/entities/user'
-import { TASK_STATUS_OPTIONS, type TaskStatus } from '@/shared/config'
 import { getById } from '@/shared/lib'
 import {
 	DndContext,
