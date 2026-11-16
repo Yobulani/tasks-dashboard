@@ -30,7 +30,6 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 	const {
 		register,
 		handleSubmit,
-		reset,
 		control,
 		formState: { errors }
 	} = useForm<TaskFormValues>({
@@ -65,7 +64,6 @@ export const TaskForm = ({ initialValue, onSuccess }: TaskFormProps) => {
 				await createTask(taskData).unwrap()
 			}
 
-			reset()
 			onSuccess?.()
 		} catch (e) {
 			console.log(e)

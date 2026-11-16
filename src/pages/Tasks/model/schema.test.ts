@@ -12,7 +12,6 @@ describe('taskFormSchema', () => {
 		}
 
 		const result = taskFormSchema.safeParse(validData)
-		console.log(JSON.stringify(result))
 		expect(result.success).toBe(true)
 	})
 

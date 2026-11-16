@@ -32,8 +32,7 @@ export const ProfileForm = ({ onFinish, currentUser }: ProfileFormProps) => {
 		register,
 		formState: { errors, isDirty },
 		handleSubmit,
-		setValue,
-		reset
+		setValue
 	} = useForm<ProfileFormValues>({
 		resolver: zodResolver(profileSchema),
 		defaultValues: {
@@ -84,7 +83,6 @@ export const ProfileForm = ({ onFinish, currentUser }: ProfileFormProps) => {
 		fileReader.readAsDataURL(file)
 	}
 	const handleCancel = () => {
-		reset()
 		onFinish()
 	}
 

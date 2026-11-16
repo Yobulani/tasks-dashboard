@@ -30,7 +30,7 @@ export const UserFormDialog = ({
 			<DialogContent>
 				<DialogHeader>
 					<DialogTitle>
-						{isEditMode ? 'Измененить пользователя' : 'Создать пользователя'}
+						{isEditMode ? 'Изменить пользователя' : 'Создать пользователя'}
 					</DialogTitle>
 
 					<UserForm
