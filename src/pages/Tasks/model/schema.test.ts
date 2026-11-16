@@ -1,4 +1,3 @@
-import type { Task } from '@/entities/task'
 import { taskFormSchema } from './schema'
 
 describe('taskFormSchema', () => {
