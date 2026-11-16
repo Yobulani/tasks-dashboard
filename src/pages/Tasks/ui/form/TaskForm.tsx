@@ -9,11 +9,11 @@ import { Controller, useForm } from 'react-hook-form'
 import { taskFormSchema, type TaskFormValues } from '../../model/schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { UserSelect } from '@/entities/user'
-import { ProjectSelect } from './ProjectSelect'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { FormField } from '@/shared/ui'
 import { Button } from '@/components/ui/button'
+import { ProjectSelect } from '@/entities/project'
 
 interface TaskFormProps {
 	initialValue?: Task
